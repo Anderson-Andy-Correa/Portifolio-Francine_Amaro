@@ -1,0 +1,410 @@
+/* --- 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS --- */
+:root {
+    --bg-color: #121212;        /* Fundo principal (Dark Graphite) */
+    --card-bg: #1e1e1e;         /* Fundo dos cartões (Ligeiramente mais claro) */
+    --text-primary: #e6e6e6;    /* Texto principal (Off-white) */
+    --text-secondary: #a0a0a0;  /* Texto secundário (Cinza) */
+    --accent: #64ffda;          /* Cor de destaque (Tech Cyan) */
+    --font-main: 'Montserrat', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. HERO SECTION (CAPA) --- */
+.hero {
+    height: 90vh; /* Ocupa 90% da altura da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+/* Botões */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--bg-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* --- 3. SEÇÃO DE PROJETOS --- */
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Pequeno detalhe visual abaixo do título */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+    margin-top: 10px;
+}
+
+.projects-grid {
+    display: grid;
+    /* Cria colunas responsivas automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Efeito de levitação */
+    border-color: var(--accent);
+}
+
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0.8; /* Imagem levemente escurecida */
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+    opacity: 1; /* Imagem clareia ao passar o mouse */
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h4 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.tags {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 2px 8px;
+    border-radius: 50px; /* Borda arredondada estilo 'capsula' */
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.link-details {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.link-details:hover {
+    color: var(--accent);
+}
+
+/* --- 4. HABILIDADES --- */
+.bg-light {
+    background-color: #171717; /* Um tom levemente diferente para separar seções */
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.skill-category h4 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.skill-category li {
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Cria um "bullet point" personalizado quadrado */
+.skill-category li::before {
+    content: '▪'; 
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+}
+
+/* --- 5. RODAPÉ --- */
+footer {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--bg-color);
+    border-top: 1px solid #333;
+}
+
+.social-links {
+    margin: 30px 0;
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid transparent;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+}
+
+.copyright {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+/* --- 6. RESPONSIVIDADE (Mobile) --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; }
+    .skills-list { grid-template-columns: 1fr; }
+}
+
+/* --- ADIÇÕES AO CSS ANTERIOR --- */
+
+/* 1. HERO PARALLAX (Efeito de profundidade) */
+.hero-parallax {
+    height: 100vh;
+    background-image: url('assets/hero-bg.jpg'); /* Coloque seu render mais bonito aqui */
+    background-attachment: fixed; /* O segredo do parallax simples */
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+
+/* Escurecer a imagem para ler o texto */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* 2. INDICADOR DE SCROLL */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+.arrow {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* 3. PROJETO 01: Galeria Espalhada */
+.project-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Texto à esq, Imagens à dir */
+    gap: 50px;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+.gallery-scattered {
+    position: relative;
+    height: 600px; /* Altura fixa para permitir o posicionamento */
+}
+
+.scatter-img {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Movimento suave */
+}
+
+/* Posicionamento "caótico" organizado */
+.img-lg { width: 70%; top: 0; left: 0; z-index: 1; }
+.img-sm { width: 40%; bottom: 50px; left: -20px; z-index: 3; }
+.img-md { width: 60%; top: 150px; right: -20px; z-index: 2; }
+
+/* 4. PROJETOS 02 e 03 DIVIDIDOS */
+.split-projects {
+    display: flex;
+    height: 70vh;
+}
+
+.split-card {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    cursor: pointer;
+    transition: flex 0.5s ease; /* Efeito sanfona */
+}
+
+.split-card:hover {
+    flex: 1.5; /* Aumenta ao passar o mouse */
+}
+
+.split-card .bg-img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.4;
+    transition: transform 0.8s;
+}
+
+.split-card:hover .bg-img {
+    transform: scale(1.1); /* Zoom suave */
+    opacity: 0.2;
+}
+
+.split-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* 5. CLASSES DE ANIMAÇÃO (O Motor do site) */
+.scroll-trigger {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-trigger.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Atrasos para criar "ritmo" */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+/* Variações de entrada */
+.fade-left { transform: translateX(-50px); }
+.fade-right { transform: translateX(50px); }
+
+/* Para telas menores */
+@media (max-width: 768px) {
+    .project-showcase, .split-projects { grid-template-columns: 1fr; display: block; height: auto; }
+    .gallery-scattered { height: 400px; margin-top: 40px;} 
+    .split-card { height: 300px; margin-bottom: 20px;}
+}
