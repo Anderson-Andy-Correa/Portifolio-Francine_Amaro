@@ -1,15 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Lógica do Aviso de Scroll (Desaparece ao rolar)
-    const scrollHint = document.getElementById('scrollHint');
-    
+    /* No script.js */
+
+// 1. Aviso de Scroll
+const scrollHint = document.getElementById('scrollHint');
+
+if (scrollHint) {
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) { // Se rolar mais de 50px
+        // MUDANÇA AQUI: De 50 para 10.
+        // Assim que o usuário encostar no scroll, ele já começa a sumir.
+        if (window.scrollY > 1) { 
             scrollHint.style.opacity = '0';
+            
+            // Dica Extra: Se quiser que ele suma e não volte mais (para não atrapalhar),
+            // descomente a linha abaixo:
+            scrollHint.style.pointerEvents = 'none'; 
         } else {
-            scrollHint.style.opacity = '1';
+            // Só reaparece se voltar exatamente para o topo (0px)
+            // Mas só vai reaparecer se a animação CSS inicial já tiver terminado.
+            scrollHint.style.opacity = '1'; 
         }
     });
+}
 
     // 2. Lógica de Animação ao Rolar (Intersection Observer)
     // Isso é mais performático que ficar ouvindo o evento 'scroll' o tempo todo

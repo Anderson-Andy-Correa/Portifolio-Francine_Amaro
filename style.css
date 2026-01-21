@@ -408,3 +408,67 @@ footer {
     .gallery-scattered { height: 400px; margin-top: 40px;} 
     .split-card { height: 300px; margin-bottom: 20px;}
 }
+
+/* --- ANIMAÇÕES DE ABERTURA (INTRO) --- */
+
+/* 1. Criamos a animação de "aparecer subindo" */
+@keyframes openingFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Começa um pouco mais baixo */
+        filter: blur(5px); /* Começa levemente desfocado */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* 2. Animação de Zoom lento para o fundo (Opcional, mas fica lindo) */
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* Aplicando na Hero Section */
+
+/* O Fundo dá um zoom bem lento (efeito dramático) */
+.hero-parallax {
+    overflow: hidden; /* Garante que o zoom não crie barras de rolagem */
+    animation: slowZoom 15s ease-out forwards; /* 15 segundos de zoom suave */
+}
+
+/* O Texto do Título (Nome) */
+.hero-content h1 {
+    opacity: 0; /* Começa invisível */
+    animation: openingFade 1.5s ease-out forwards;
+    animation-delay: 1s; /* Espera 0.5s antes de começar (deixa a imagem brilhar) */
+}
+
+/* O Subtítulo (Cargos) */
+.hero-content p {
+    opacity: 0;
+    animation: openingFade 1.5s ease-out forwards;
+    animation-delay: 2s; /* Entra depois do nome */
+}
+
+/* O Botão de aviso de scroll */
+/* No style.css - Substitua o bloco .scroll-indicator antigo por este: */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%; /* Coloca o início do elemento no meio */
+    transform: translateX(-50%); /* Puxa ele de volta metade da própria largura (centraliza exato) */
+    text-align: center;
+    z-index: 10; /* Garante que fique acima da imagem */
+    
+    /* Configuração da Animação de Entrada */
+    opacity: 0; /* Começa INVISÍVEL */
+    animation: openingFade 1s ease-out forwards; /* Executa a animação e PARA no estado final (visível) */
+    animation-delay: 3s; /* Espera 3 segundos cravados antes de começar a aparecer */
+    
+    /* Transição suave para quando for sumir ao rolar */
+    transition: opacity 0.3s ease; 
+}
