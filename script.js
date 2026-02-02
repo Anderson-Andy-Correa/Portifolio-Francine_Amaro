@@ -24,13 +24,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('visible');
             } 
             // Se o elemento SAIU da tela (porm cima ou por baixo)
-            else {
-                entry.target.classList.remove('visible'); // <--- A MÁGICA DO REVERSO
-            }
+            // else {
+            //     entry.target.classList.remove('visible'); // <--- A MÁGICA DO REVERSO
+            // }
         });
     }, observerOptions);
 
     // Seleciona todos os elementos que devem animar
     const elementsToAnimate = document.querySelectorAll('.scroll-trigger');
     elementsToAnimate.forEach(el => observer.observe(el));
+});
+
+// Função para abrir o overlay
+function abrirProjeto() {
+    const overlay = document.getElementById('project-overlay');
+    overlay.classList.add('active'); // Adiciona a classe que muda a opacidade para 1
+    document.body.style.overflow = 'hidden'; // Impede a rolagem da página de fundo
+}
+
+// Função para fechar o overlay
+function fecharProjeto() {
+    const overlay = document.getElementById('project-overlay');
+    overlay.classList.remove('active'); // Remove a classe, voltando a opacidade para 0
+    document.body.style.overflow = 'auto'; // Libera a rolagem da página
+}
+
+// Fechar se clicar fora do conteúdo (no fundo preto)
+document.getElementById('project-overlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        fecharProjeto();
+    }
 });

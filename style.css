@@ -1,3 +1,32 @@
+/* --- SCROLLBAR PERSONALIZADA --- */
+
+/* Largura da barra */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* O fundo da barra (o trilho) */
+::-webkit-scrollbar-track {
+    background: #0f0f0f; 
+}
+
+/* A parte que se mexe (o polegar) */
+::-webkit-scrollbar-thumb {
+    background: #333; /* Cinza escuro discreto */
+    border-radius: 4px;
+}
+
+/* Quando passa o mouse na barra */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent); /* Acende em Ciano */
+}
+
+/* --- SELEÇÃO DE TEXTO --- */
+::selection {
+    background-color: var(--accent); /* Fundo Ciano */
+    color: var(--bg-color); /* Texto Escuro */
+}
+
 /* --- 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS --- */
 :root {
     --bg-color: #121212;        /* Fundo principal (Dark Graphite) */
@@ -214,13 +243,17 @@ ul {
     background-color: var(--accent);
     border-radius: 10px;
     position: relative;
-    
-    /* EFEITO DE NEON (GLOW) */
     box-shadow: 0 0 10px var(--accent);
     
-    /* Animação de largura */
-    width: 0; /* Começa zerada */
-    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1); /* Efeito elástico suave */
+    /* ESTADO INICIAL: Zerado */
+    width: 0; 
+    
+    /* Configuração da animação (1.5 segundos, efeito elástico suave) */
+    transition: width 5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skills-bar.visible .skill .bar {
+    width: var(--target); /* Pega o valor definido no HTML */
 }
 
 /* Responsividade para Celular */
@@ -232,6 +265,142 @@ ul {
     }
     
     .text-block h2 { font-size: 2rem; }
+}
+
+/* --- ESTILO DA BIO (Sobre Mim) --- */
+.about-section {
+    padding: 80px 10%;
+    background-color: #1a1a1a; /* Fundo escuro */
+    color: #fff;
+}
+
+.about-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(100%); /* Deixa a foto P&B (chique) */
+    transition: 0.3s;
+}
+
+.about-image img:hover {
+    filter: grayscale(0%); /* Fica colorida ao passar o mouse */
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff5722; /* Detalhe laranja/tijolo */
+    padding-left: 15px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* --- ESTILO DO OVERLAY (A Mágica) --- */
+.overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95); /* Fundo quase preto total */
+    z-index: 9999;
+    
+    /* O SEGREDO DA INVISIBILIDADE */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    
+    /* Permite scrollar dentro do overlay se o projeto for longo */
+    overflow-y: auto; 
+}
+
+/* Classe que vamos adicionar com JS para mostrar a tela */
+.overlay-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estrutura interna do Overlay */
+.overlay-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #111;
+    padding-bottom: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.project-hero {
+    position: relative;
+    height: 400px;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.hero-title {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    color: white;
+}
+
+.hero-title h1 { font-size: 3rem; margin: 0; }
+.hero-title span { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; }
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Lateral fixa | Conteúdo fluido */
+    gap: 40px;
+    padding: 40px;
+    color: #ddd;
+}
+
+.close-btn {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.close-btn:hover { color: #ff5722; }
+
+/* Galeria Grid simples */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+.gallery-item {
+    height: 150px;
+    background: #333; /* Placeholder cinza */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.8rem;
 }
 
 /* --- 3. SEÇÃO DE PROJETOS --- */

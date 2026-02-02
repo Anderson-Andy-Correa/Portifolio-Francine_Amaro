@@ -27,17 +27,84 @@
                 <div class="skill">
                     <span>BIM & Revit</span>
                     <div class="bar-bg">
-                        <div class="bar" style="width: 85%"></div>
+                        <div class="bar" style="--target: 85%"></div>
                     </div>
                 </div>
                 <div class="skill">
                     <span>Design Biofílico</span>
                     <div class="bar-bg">
-                        <div class="bar" style="width: 80%"></div>
+                        <div class="bar" style="--target: 80%"></div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="sobre" class="about-section">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="sua-foto-perfil.jpg" alt="Foto de Perfil">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre Mim</h2>
+                    <p class="bio-intro">
+                        Sou estudante do 5º semestre de Arquitetura e Urbanismo na FURB, em Blumenau. 
+                        Minha trajetória é definida pela disciplina e pela busca constante por projetos sólidos, 
+                        que unam estética e eficiência técnica.
+                    </p>
+                    <p>
+                        Atualmente, trago a bagagem de quase dois anos de estágio na área de prevenção a incêndio (Bombeiro), 
+                        uma experiência que moldou meu olhar para a segurança e a viabilidade normativa desde os primeiros traços. 
+                        Dedico meus dias a dominar tecnologias <strong>BIM e CAD</strong>, acreditando que a inovação tecnológica 
+                        é a chave para construir espaços que melhorem o mundo.
+                    </p>
+                    <p class="bio-hobby">
+                        Fora da prancheta, busco inspiração visitando referências arquitetônicas e explorando novos horizontes 
+                        através da leitura — sempre na companhia dos meus gatos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div id="project-overlay" class="overlay-container">
+            <button class="close-btn" onclick="fecharProjeto()">&times;</button>
+            
+            <div class="overlay-content">
+                <div class="project-hero">
+                    <img src="projeto-camelia-render.jpg" alt="Capa do Projeto">
+                    <div class="hero-title">
+                        <h1>Casa Camélia</h1>
+                        <span>Conceito Orgânico & Bioclimático</span>
+                    </div>
+                </div>
+
+                <div class="project-grid">
+                    <aside class="project-sidebar">
+                        <h3>Ficha Técnica</h3>
+                        <ul>
+                            <li><strong>Ano:</strong> 2025 (4º Semestre)</li>
+                            <li><strong>Tipologia:</strong> Residencial</li>
+                            <li><strong>Softwares:</strong> Revit, AutoCAD, Lumion</li>
+                            <li><strong>Local:</strong> Blumenau, SC</li>
+                        </ul>
+                        <div class="tags">
+                            <span class="tag">BIM</span>
+                            <span class="tag">Design Orgânico</span>
+                        </div>
+                    </aside>
+
+                    <article class="project-details">
+                        <h3>O Desafio</h3>
+                        <p>Compatibilizar a estética orgânica inspirada na flor camélia com as normas de segurança e eficiência térmica, criando uma volumetria complexa sem perder a funcionalidade.</p>
+                        
+                        <h3>Solução Técnica</h3>
+                        <p>Através da modelagem paramétrica no Revit, foi possível racionalizar as curvas da fachada. O uso do AutoCAD permitiu o detalhamento preciso das esquadrias para maximizar a ventilação cruzada.</p>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item">Plantas Técnicas</div> <div class="gallery-item">Cortes</div> <div class="gallery-item">Estudo Solar</div> </div>
+                    </article>
+                </div>
+            </div>
+        </div>
 
         <div class="section-divider">
             <h3 class="scroll-trigger">Projetos Selecionados</h3>
@@ -47,7 +114,7 @@
             <div class="project-desc scroll-trigger">
                 <h4>01. Residência Camélia</h4>
                 <p>Uma exploração de curvas e volumetria orgânica. O desafio foi adaptar a forma à topografia acidentada sem grandes cortes de terra.</p>
-                <a href="#" class="btn-link">Ver Estudo de Caso &rarr;</a>
+                <a href="#" onclick="abrirProjeto(); return false;" class="btn-link">Ver Estudo de Caso &rarr;</a>
             </div>
             
             <div class="gallery-scattered">
@@ -58,15 +125,15 @@
         </section>
 
         <section class="split-projects">
-            <div class="split-card dark-bg scroll-trigger">
-                <div class="split-content">
+            <div onclick="abrirProjeto()" class="split-card dark-bg scroll-trigger">
+                <div class="split-content" >
                     <h4>02. Bairro Inteligente</h4>
                     <p>Urbanismo tático e análise de dados.</p>
                 </div>
                 <img src="assets/placeholder.png" class="bg-img" alt="Urbanismo">
             </div>
             
-            <div class="split-card light-bg scroll-trigger delay-1">
+            <div onclick="abrirProjeto()" class="split-card light-bg scroll-trigger delay-1">
                 <div class="split-content">
                     <h4>03. Em construção</h4>
                     <p>Em breve....</p>
