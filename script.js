@@ -13,21 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Isso é mais performático que ficar ouvindo o evento 'scroll' o tempo todo
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Dispara quando 15% do elemento estiver visível
+        rootMargin: '0px', // Dispara exatamente quando a borda entra na tela
+        threshold: 0.15    // 15% do elemento precisa estar visível para ativar
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            // Se o elemento entrou na tela (Scroll Down ou Up)
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Se quiser que anime apenas uma vez, descomente a linha abaixo:
-                observer.unobserve(entry.target); 
+            } 
+            // Se o elemento SAIU da tela (porm cima ou por baixo)
+            else {
+                entry.target.classList.remove('visible'); // <--- A MÁGICA DO REVERSO
             }
         });
     }, observerOptions);
 
-    // Seleciona todos os elementos que têm a classe .scroll-trigger
+    // Seleciona todos os elementos que devem animar
     const elementsToAnimate = document.querySelectorAll('.scroll-trigger');
     elementsToAnimate.forEach(el => observer.observe(el));
 });

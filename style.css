@@ -473,6 +473,9 @@ footer {
 .scroll-trigger {
     opacity: 0;
     transform: translateY(50px);
+    
+    /* IMPORTANTE: A transição fica AQUI na classe base.
+       Isso garante que tanto a IDA quanto a VOLTA sejam suaves (0.8s) */
     transition: all 0.8s ease-out;
 }
 
@@ -488,6 +491,11 @@ footer {
 /* Variações de entrada */
 .fade-left { transform: translateX(-50px); }
 .fade-right { transform: translateX(50px); }
+
+.scroll-trigger.visible.fade-left,
+.scroll-trigger.visible.fade-right {
+    transform: translateX(0);
+}
 
 /* Para telas menores */
 @media (max-width: 768px) {
