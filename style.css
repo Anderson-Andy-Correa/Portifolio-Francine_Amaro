@@ -102,6 +102,36 @@ ul {
     background-color: rgba(100, 255, 218, 0.1);
 }
 
+/* --- DIVISOR DE SEÇÃO --- */
+.section-divider {
+    padding: 120px 0 60px; /* Muito "respiro" vertical */
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* O elemento visual: Uma linha vertical fina (eixo) */
+.section-divider::before {
+    content: '';
+    display: block;
+    width: 1px;       /* Linha super fina */
+    height: 60px;     /* Altura da linha */
+    background-color: var(--accent); /* Cor Ciano */
+    opacity: 0.6;
+    margin-bottom: 20px; /* Espaço entre a linha e o texto */
+}
+
+/* Estilização do Texto (H3) dentro do divisor */
+.section-divider h3 {
+    font-size: 2rem;
+    font-weight: 300; /* Fonte "Light" fica mais elegante */
+    letter-spacing: 4px; /* Espaçamento largo entre letras */
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
 /* --- 3. SEÇÃO DE PROJETOS --- */
 .section {
     padding: 100px 0;
@@ -228,6 +258,74 @@ ul {
     left: 0;
 }
 
+/* --- CHAMADA PARA AÇÃO (CTA) --- */
+.cta-section {
+    padding: 150px 20px 120px; /* Bastante espaço acima para respirar */
+    text-align: center;
+    /* Um degradê sutil vindo de baixo para dar "peso" ao final da página */
+    background: linear-gradient(to bottom, transparent, rgba(30, 30, 30, 0.5));
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.cta-section p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Container dos botões */
+.cta-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Garante que quebre linha no celular se precisar */
+}
+
+/* --- ESTILOS DOS BOTÕES (Reutilizáveis) --- */
+
+/* Botão Principal (Cheio) */
+.btn-primary {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: var(--accent); /* Ciano */
+    color: var(--bg-color); /* Texto escuro para contraste */
+    font-weight: 700;
+    border-radius: 50px; /* Pílula arredondada */
+    border: 2px solid var(--accent);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2); /* Brilho suave */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px); /* Sobe um pouquinho */
+    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.4);
+}
+
+/* Botão Secundário (Contorno / Outline) */
+.btn-outline {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: transparent;
+    color: var(--text-primary); /* Texto branco */
+    font-weight: 600;
+    border-radius: 50px;
+    border: 2px solid #444; /* Borda cinza discreta */
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent); /* Borda fica ciano */
+    color: var(--accent);        /* Texto fica ciano */
+    background-color: rgba(100, 255, 218, 0.05); /* Fundo muito leve */
+}
+
 /* --- 5. RODAPÉ --- */
 footer {
     padding: 80px 0;
@@ -292,29 +390,6 @@ footer {
     text-align: center;
 }
 
-/* 2. INDICADOR DE SCROLL */
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    z-index: 2;
-}
-
-.arrow {
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
-}
-
 /* 3. PROJETO 01: Galeria Espalhada */
 .project-showcase {
     display: grid;
@@ -346,6 +421,14 @@ footer {
 .split-projects {
     display: flex;
     height: 70vh;
+    
+    /* Suas configurações de tamanho */
+    width: 70%; /* Sugiro 70% ou 80% para não ficar TÃO pequeno em laptops */
+    max-width: 1000px; /* Trava para não esticar demais em monitores gigantes */
+    margin: 0 auto; /* Centraliza o bloco na tela */
+    
+    /* A SOLUÇÃO DO "COLADO": */
+    gap: 30px; /* Cria um espaço de 30px entre os dois quadros */
 }
 
 .split-card {
@@ -356,7 +439,11 @@ footer {
     align-items: flex-end;
     padding: 40px;
     cursor: pointer;
-    transition: flex 0.5s ease; /* Efeito sanfona */
+    transition: flex 0.5s ease;
+    
+    /* DICA VISUAL: Arredonde os cantos */
+    /* Isso ajuda o olho a perceber que são dois elementos separados pelo Gap */
+    border-radius: 20px; 
 }
 
 .split-card:hover {
@@ -406,7 +493,16 @@ footer {
 @media (max-width: 768px) {
     .project-showcase, .split-projects { grid-template-columns: 1fr; display: block; height: auto; }
     .gallery-scattered { height: 400px; margin-top: 40px;} 
-    .split-card { height: 300px; margin-bottom: 20px;}
+    .split-projects {
+        width: 90%; /* No celular, usamos quase a tela toda */
+        height: auto; /* Deixa a altura livre */
+        flex-direction: column; /* Empilha um em cima do outro */
+        gap: 20px;
+    }
+
+    .split-card {
+        height: 300px; /* Define uma altura fixa para cada card no mobile */
+    }
 }
 
 /* --- ANIMAÇÕES DE ABERTURA (INTRO) --- */
