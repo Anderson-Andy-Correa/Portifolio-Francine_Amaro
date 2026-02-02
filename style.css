@@ -132,6 +132,108 @@ ul {
     color: var(--text-primary);
 }
 
+/* --- SEÇÃO DE APRESENTAÇÃO (DASHBOARD STYLE) --- */
+.intro-section {
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Texto de um lado, skills do outro */
+    gap: 60px;
+    
+    /* Um fundo sutil para destacar do resto da página */
+    background: linear-gradient(to right, rgba(255,255,255,0.02), transparent);
+    border-radius: 20px;
+    margin-top: 50px; /* Descola um pouco do Hero */
+    margin-bottom: 50px;
+}
+
+/* O BLOCO DE TEXTO */
+.text-block {
+    flex: 1; /* Ocupa 50% do espaço */
+    max-width: 600px;
+}
+
+.text-block h2 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #fff, #888); /* Texto degradê metálico */
+    -webkit-background-clip: text;
+    background-clip: text; /* Adicionando a propriedade padrão */
+    -webkit-text-fill-color: transparent;
+}
+
+.text-block p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--accent); /* Linha vertical ciano para destaque */
+    padding-left: 20px;
+}
+
+/* AS BARRAS DE HABILIDADE (TECH STYLE) */
+.skills-bar {
+    flex: 0.8; /* Ocupa um pouco menos espaço que o texto */
+    background: rgba(0,0,0,0.3); /* Fundo "vidro" escuro */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.05); /* Borda muito sutil */
+}
+
+.skill {
+    margin-bottom: 25px;
+}
+
+.skill:last-child {
+    margin-bottom: 0;
+}
+
+/* O Texto da Skill (ex: "BIM & Revit") */
+.skill span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* O "Trilho" da barra (fundo cinza escuro) */
+.skill .bar-bg {
+    width: 100%;
+    height: 8px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden; /* Garante que o brilho não vaze feio */
+    position: relative;
+}
+
+/* A Barra colorida em si */
+.skill .bar {
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 10px;
+    position: relative;
+    
+    /* EFEITO DE NEON (GLOW) */
+    box-shadow: 0 0 10px var(--accent);
+    
+    /* Animação de largura */
+    width: 0; /* Começa zerada */
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1); /* Efeito elástico suave */
+}
+
+/* Responsividade para Celular */
+@media (max-width: 768px) {
+    .intro-section {
+        flex-direction: column; /* Empilha um em cima do outro */
+        text-align: left;
+        gap: 40px;
+    }
+    
+    .text-block h2 { font-size: 2rem; }
+}
+
 /* --- 3. SEÇÃO DE PROJETOS --- */
 .section {
     padding: 100px 0;
