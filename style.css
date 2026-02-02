@@ -467,28 +467,48 @@ footer {
 
 /* 1. HERO PARALLAX (Efeito de profundidade) */
 .hero-parallax {
-    height: 100vh;
-    background-image: url('assets/hero-bg.jpg'); /* Coloque seu render mais bonito aqui */
-    background-attachment: fixed; /* O segredo do parallax simples */
-    background-position: center;
-    background-size: cover;
+    position: relative;
+    height: 100vh; /* Altura total da tela */
+    
+    /* --- AQUI VAI A SUA IMAGEM --- */
+    /* Troque 'render-capa.jpg' pelo nome exato do seu arquivo na pasta assets */
+    background-image: url('assets/render-capa.jpg'); 
+    
+    /* Configurações para a imagem ficar bonita */
+    background-position: center center; /* Centraliza a imagem */
+    background-size: cover; /* Faz a imagem cobrir todo o espaço sem distorcer */
+    background-attachment: fixed; /* Efeito parallax simples (opcional) */
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    color: white;
+    color: white; /* Cor do texto */
+    overflow: hidden;
+    
+    /* Mantém a animação de zoom lento se você ainda estiver usando */
+    animation: slowZoom 15s ease-out forwards; 
 }
 
 /* Escurecer a imagem para ler o texto */
 .overlay {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* COR DA MÁSCARA */
+    /* rgba(0,0,0, 0.6) significa: Preto com 60% de opacidade */
+    /* Se ficar muito escuro, mude 0.6 para 0.4. Se ficar difícil de ler, aumente para 0.7 */
+    background: rgba(18, 18, 18, 0.6); 
+    
+    z-index: 1; /* Fica acima da imagem de fundo */
 }
 
+/* GARANTIR QUE O TEXTO FIQUE POR CIMA DA MÁSCARA */
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Fica acima da máscara (z-index 1) */
     text-align: center;
 }
 
