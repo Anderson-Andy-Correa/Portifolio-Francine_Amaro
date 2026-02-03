@@ -70,10 +70,10 @@
             
             <div class="overlay-content">
                 <div class="project-hero">
-                    <img src="projeto-camelia-render.jpg" alt="Capa do Projeto">
+                    <img id="overlay-img" src="" alt="Capa do Projeto">
                     <div class="hero-title">
-                        <h1>Casa Camélia</h1>
-                        <span>Conceito Orgânico & Bioclimático</span>
+                        <h1 id="overlay-titulo"></h1>
+                        <span id="overlay-subtitulo"></span>
                     </div>
                 </div>
 
@@ -81,26 +81,16 @@
                     <aside class="project-sidebar">
                         <h3>Ficha Técnica</h3>
                         <ul>
-                            <li><strong>Ano:</strong> 2025 (4º Semestre)</li>
-                            <li><strong>Tipologia:</strong> Residencial</li>
-                            <li><strong>Softwares:</strong> Revit, AutoCAD, Lumion</li>
-                            <li><strong>Local:</strong> Blumenau, SC</li>
+                            <li><strong>Ano:</strong> <span id="overlay-ano"></span></li>
+                            <li><strong>Tipologia:</strong> <span id="overlay-tipo"></span></li>
                         </ul>
-                        <div class="tags">
-                            <span class="tag">BIM</span>
-                            <span class="tag">Design Orgânico</span>
-                        </div>
+                        <div id="overlay-softwares" class="tags"></div>
                     </aside>
 
                     <article class="project-details">
                         <h3>O Desafio</h3>
-                        <p>Compatibilizar a estética orgânica inspirada na flor camélia com as normas de segurança e eficiência térmica, criando uma volumetria complexa sem perder a funcionalidade.</p>
-                        
-                        <h3>Solução Técnica</h3>
-                        <p>Através da modelagem paramétrica no Revit, foi possível racionalizar as curvas da fachada. O uso do AutoCAD permitiu o detalhamento preciso das esquadrias para maximizar a ventilação cruzada.</p>
-                        
-                        <div class="gallery-grid">
-                            <div class="gallery-item">Plantas Técnicas</div> <div class="gallery-item">Cortes</div> <div class="gallery-item">Estudo Solar</div> </div>
+                        <p id="overlay-desafio"></p> <h3>Solução Técnica</h3>
+                        <p id="overlay-solucao"></p> <div id="overlay-galeria" class="gallery-grid"></div>
                     </article>
                 </div>
             </div>
@@ -114,7 +104,7 @@
             <div class="project-desc scroll-trigger">
                 <h4>01. Residência Camélia</h4>
                 <p>Uma exploração de curvas e volumetria orgânica. O desafio foi adaptar a forma à topografia acidentada sem grandes cortes de terra.</p>
-                <a href="#" onclick="abrirProjeto(); return false;" class="btn-link">Ver Estudo de Caso &rarr;</a>
+                <a href="#" onclick="abrirProjeto(0); return false;" class="btn-link">Ver Estudo de Caso &rarr;</a>
             </div>
             
             <div class="gallery-scattered">
@@ -125,7 +115,7 @@
         </section>
 
         <section class="split-projects">
-            <div onclick="abrirProjeto()" class="split-card dark-bg scroll-trigger">
+            <div onclick="abrirProjeto(1); return false;" class="split-card dark-bg scroll-trigger">
                 <div class="split-content" >
                     <h4>02. Bairro Inteligente</h4>
                     <p>Urbanismo tático e análise de dados.</p>
@@ -133,13 +123,109 @@
                 <img src="assets/placeholder.png" class="bg-img" alt="Urbanismo">
             </div>
             
-            <div onclick="abrirProjeto()" class="split-card light-bg scroll-trigger delay-1">
+            <div onclick="abrirProjeto(2); return false;" class="split-card light-bg scroll-trigger delay-1">
                 <div class="split-content">
                     <h4>03. Em construção</h4>
                     <p>Em breve....</p>
                 </div>
                 <img src="assets/placeholder.png" class="bg-img" alt="Software">
             </div>
+        </section>
+
+        <section id="projetos-dinamicos" class="immersive-gallery">
+    
+            <div class="gallery-header">
+                <h2>Projetos Selecionados</h2>
+                <p>Role para o lado &rarr;</p>
+            </div>
+
+            <div class="carousel-container">
+                
+                <div class="project-card" 
+                    data-index="0"
+                    data-bg="#2c1a16" 
+                    data-text="#e6dace"
+                    onclick="abrirProjeto(0)">
+                    <div class="card-image">
+                        <img src="assets/camelia-thumb.jpg" alt="Casa Camélia">
+                    </div>
+                    <div class="card-info">
+                        <span>01. Residencial</span>
+                        <h3>Casa Camélia</h3>
+                    </div>
+                </div>
+
+                <div class="project-card" 
+                    data-index="1"
+                    data-bg="#0f291e" 
+                    data-text="#cce6d9"
+                    onclick="abrirProjeto(1)">
+                    <div class="card-image">
+                        <img src="assets/biofilico-thumb.jpg" alt="Bairro Biofílico">
+                    </div>
+                    <div class="card-info">
+                        <span>02. Urbanismo</span>
+                        <h3>Bairro Biofílico</h3>
+                    </div>
+                </div>
+
+                <div class="project-card" 
+                    data-index="2"
+                    data-bg="#1a1a1a" 
+                    data-text="#ffffff"
+                    onclick="abrirProjeto(2)">
+                    <div class="card-image">
+                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
+                    </div>
+                    <div class="card-info">
+                        <span>03. Industrial</span>
+                        <h3>Complexo Fabril</h3>
+                    </div>
+                </div>
+
+                <div class="project-card" 
+                    data-index="2"
+                    data-bg="#1a1a1a" 
+                    data-text="#ffffff"
+                    onclick="abrirProjeto(2)">
+                    <div class="card-image">
+                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
+                    </div>
+                    <div class="card-info">
+                        <span>03. Industrial</span>
+                        <h3>Complexo Fabril</h3>
+                    </div>
+                </div>
+
+                <div class="project-card" 
+                    data-index="2"
+                    data-bg="#1a1a1a" 
+                    data-text="#ffffff"
+                    onclick="abrirProjeto(2)">
+                    <div class="card-image">
+                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
+                    </div>
+                    <div class="card-info">
+                        <span>03. Industrial</span>
+                        <h3>Complexo Fabril</h3>
+                    </div>
+                </div>
+
+                <div class="project-card" 
+                    data-index="2"
+                    data-bg="#1a1a1a" 
+                    data-text="#ffffff"
+                    onclick="abrirProjeto(2)">
+                    <div class="card-image">
+                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
+                    </div>
+                    <div class="card-info">
+                        <span>03. Industrial</span>
+                        <h3>Complexo Fabril</h3>
+                    </div>
+                </div>
+
+                </div>
         </section>
         
         <section class="cta-section container scroll-trigger">

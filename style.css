@@ -1,39 +1,19 @@
-/* --- SCROLLBAR PERSONALIZADA --- */
-
-/* Largura da barra */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-/* O fundo da barra (o trilho) */
-::-webkit-scrollbar-track {
-    background: #0f0f0f; 
-}
-
-/* A parte que se mexe (o polegar) */
-::-webkit-scrollbar-thumb {
-    background: #333; /* Cinza escuro discreto */
-    border-radius: 4px;
-}
-
-/* Quando passa o mouse na barra */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent); /* Acende em Ciano */
-}
-
-/* --- SELEÇÃO DE TEXTO --- */
-::selection {
-    background-color: var(--accent); /* Fundo Ciano */
-    color: var(--bg-color); /* Texto Escuro */
-}
-
-/* --- 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS --- */
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================= */
 :root {
-    --bg-color: #121212;        /* Fundo principal (Dark Graphite) */
-    --card-bg: #1e1e1e;         /* Fundo dos cartões (Ligeiramente mais claro) */
-    --text-primary: #e6e6e6;    /* Texto principal (Off-white) */
-    --text-secondary: #a0a0a0;  /* Texto secundário (Cinza) */
-    --accent: #64ffda;          /* Cor de destaque (Tech Cyan) */
+    /* Cores Principais */
+    --bg-color: #121212;        /* Dark Graphite */
+    --card-bg: #1e1e1e;         /* Cartões */
+    --text-primary: #e6e6e6;    /* Texto claro */
+    --text-secondary: #a0a0a0;  /* Texto cinza */
+    --accent: #64ffda;          /* Ciano Tech */
+    
+    /* Variáveis Dinâmicas (Efeito Camaleão) */
+    --dynamic-bg: #111;
+    --dynamic-text: #fff;
+
+    /* Fontes e Efeitos */
     --font-main: 'Montserrat', sans-serif;
     --transition: all 0.3s ease;
 }
@@ -49,7 +29,8 @@ body {
     color: var(--text-primary);
     font-family: var(--font-main);
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida */
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* Evita rolagem lateral indesejada */
 }
 
 a {
@@ -58,9 +39,7 @@ a {
     transition: var(--transition);
 }
 
-ul {
-    list-style: none;
-}
+ul { list-style: none; }
 
 .container {
     max-width: 1200px;
@@ -68,212 +47,203 @@ ul {
     padding: 0 20px;
 }
 
-/* --- 2. HERO SECTION (CAPA) --- */
-.hero {
-    height: 90vh; /* Ocupa 90% da altura da tela */
+/* --- SCROLLBAR PERSONALIZADA --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0f0f0f; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::selection { background-color: var(--accent); color: var(--bg-color); }
+
+/* =========================================
+   2. HERO SECTION (PARALLAX & INTRO)
+   ========================================= */
+.hero-parallax {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    
+    /* Imagem de Fundo */
+    background-image: url('assets/render-capa.jpg'); /* Verifique o nome do arquivo! */
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed; /* Efeito parallax */
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    border-bottom: 1px solid #333;
+    color: white;
+    overflow: hidden;
+    
+    /* Animação de Zoom Lento no fundo */
+    animation: slowZoom 15s ease-out forwards;
 }
 
-.hero h1 {
+/* Máscara escura sobre a imagem */
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(18, 18, 18, 0.6); /* Ajuste a opacidade aqui (0.6 = 60%) */
+    z-index: 1;
+}
+
+/* Conteúdo da Hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     letter-spacing: -1px;
     margin-bottom: 10px;
+    
+    /* Animação de Entrada */
+    opacity: 0;
+    animation: openingFade 1.5s ease-out forwards;
+    animation-delay: 1s;
 }
 
-.hero h2 {
+.hero-content p {
     font-size: 1.5rem;
     color: var(--accent);
     font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    
+    /* Animação de Entrada */
+    opacity: 0;
+    animation: openingFade 1.5s ease-out forwards;
+    animation-delay: 2s;
 }
 
-.hero p {
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-}
-
-/* Botões */
 .hero-buttons {
     display: flex;
     gap: 20px;
     justify-content: center;
+    opacity: 0;
+    animation: openingFade 1.5s ease-out forwards;
+    animation-delay: 2.5s;
 }
 
+/* Indicador de Scroll (Seta ou texto no fim da tela) */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+    
+    opacity: 0;
+    animation: openingFade 1s ease-out forwards;
+    animation-delay: 3s;
+    transition: opacity 0.3s ease;
+}
+
+/* Botões Padrão */
 .btn-primary, .btn-secondary {
     padding: 12px 30px;
     border-radius: 5px;
     font-weight: 600;
     border: 1px solid var(--accent);
+    cursor: pointer;
 }
 
-.btn-primary {
-    background-color: var(--accent);
-    color: var(--bg-color);
-}
+.btn-primary { background-color: var(--accent); color: var(--bg-color); }
+.btn-primary:hover { background-color: transparent; color: var(--accent); }
 
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--accent);
-}
+.btn-secondary { background-color: transparent; color: var(--accent); }
+.btn-secondary:hover { background-color: rgba(100, 255, 218, 0.1); }
 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--accent);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(100, 255, 218, 0.1);
-}
-
-/* --- DIVISOR DE SEÇÃO --- */
+/* =========================================
+   3. SEÇÕES GERAIS (Intro, Sobre, Divisores)
+   ========================================= */
 .section-divider {
-    padding: 120px 0 60px; /* Muito "respiro" vertical */
+    padding: 120px 0 60px;
     text-align: center;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* O elemento visual: Uma linha vertical fina (eixo) */
 .section-divider::before {
     content: '';
     display: block;
-    width: 1px;       /* Linha super fina */
-    height: 60px;     /* Altura da linha */
-    background-color: var(--accent); /* Cor Ciano */
+    width: 1px;
+    height: 60px;
+    background-color: var(--accent);
     opacity: 0.6;
-    margin-bottom: 20px; /* Espaço entre a linha e o texto */
+    margin-bottom: 20px;
 }
 
-/* Estilização do Texto (H3) dentro do divisor */
 .section-divider h3 {
     font-size: 2rem;
-    font-weight: 300; /* Fonte "Light" fica mais elegante */
-    letter-spacing: 4px; /* Espaçamento largo entre letras */
+    font-weight: 300;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--text-primary);
 }
 
-/* --- SEÇÃO DE APRESENTAÇÃO (DASHBOARD STYLE) --- */
+/* INTRO DASHBOARD (Texto + Skills) */
 .intro-section {
     padding: 100px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Texto de um lado, skills do outro */
+    justify-content: space-between;
     gap: 60px;
-    
-    /* Um fundo sutil para destacar do resto da página */
     background: linear-gradient(to right, rgba(255,255,255,0.02), transparent);
     border-radius: 20px;
-    margin-top: 50px; /* Descola um pouco do Hero */
-    margin-bottom: 50px;
+    margin: 50px auto;
+    max-width: 1200px;
 }
 
-/* O BLOCO DE TEXTO */
-.text-block {
-    flex: 1; /* Ocupa 50% do espaço */
-    max-width: 600px;
-}
-
+.text-block { flex: 1; max-width: 600px; }
 .text-block h2 {
     font-size: 2.8rem;
     line-height: 1.1;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #fff, #888); /* Texto degradê metálico */
+    background: linear-gradient(90deg, #fff, #888);
     -webkit-background-clip: text;
-    background-clip: text; /* Adicionando a propriedade padrão */
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .text-block p {
     font-size: 1.1rem;
     color: var(--text-secondary);
-    border-left: 3px solid var(--accent); /* Linha vertical ciano para destaque */
+    border-left: 3px solid var(--accent);
     padding-left: 20px;
 }
 
-/* AS BARRAS DE HABILIDADE (TECH STYLE) */
+/* BARRA DE SKILLS */
 .skills-bar {
-    flex: 0.8; /* Ocupa um pouco menos espaço que o texto */
-    background: rgba(0,0,0,0.3); /* Fundo "vidro" escuro */
+    flex: 0.8;
+    background: rgba(0,0,0,0.3);
     padding: 30px;
     border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.05); /* Borda muito sutil */
+    border: 1px solid rgba(255,255,255,0.05);
 }
-
-.skill {
-    margin-bottom: 25px;
-}
-
-.skill:last-child {
-    margin-bottom: 0;
-}
-
-/* O Texto da Skill (ex: "BIM & Revit") */
-.skill span {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* O "Trilho" da barra (fundo cinza escuro) */
-.skill .bar-bg {
-    width: 100%;
-    height: 8px;
-    background-color: #333;
-    border-radius: 10px;
-    overflow: hidden; /* Garante que o brilho não vaze feio */
-    position: relative;
-}
-
-/* A Barra colorida em si */
+.skill { margin-bottom: 25px; }
+.skill span { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.skill .bar-bg { width: 100%; height: 8px; background-color: #333; border-radius: 10px; overflow: hidden; }
 .skill .bar {
     height: 100%;
+    width: 0; /* JS controla isso */
     background-color: var(--accent);
     border-radius: 10px;
-    position: relative;
     box-shadow: 0 0 10px var(--accent);
-    
-    /* ESTADO INICIAL: Zerado */
-    width: 0; 
-    
-    /* Configuração da animação (1.5 segundos, efeito elástico suave) */
-    transition: width 5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: width 2s cubic-bezier(0.22, 1, 0.36, 1);
 }
+.skills-bar.visible .skill .bar { width: var(--target); }
 
-.skills-bar.visible .skill .bar {
-    width: var(--target); /* Pega o valor definido no HTML */
-}
-
-/* Responsividade para Celular */
-@media (max-width: 768px) {
-    .intro-section {
-        flex-direction: column; /* Empilha um em cima do outro */
-        text-align: left;
-        gap: 40px;
-    }
-    
-    .text-block h2 { font-size: 2rem; }
-}
-
-/* --- ESTILO DA BIO (Sobre Mim) --- */
+/* SOBRE MIM (BIO) */
 .about-section {
     padding: 80px 10%;
-    background-color: #1a1a1a; /* Fundo escuro */
+    background-color: #1a1a1a;
     color: #fff;
 }
-
 .about-container {
     display: flex;
     gap: 50px;
@@ -281,447 +251,103 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .about-image img {
-    width: 300px;
-    height: 400px;
+    width: 300px; height: 400px;
     object-fit: cover;
     border-radius: 4px;
-    filter: grayscale(100%); /* Deixa a foto P&B (chique) */
+    filter: grayscale(100%);
     transition: 0.3s;
 }
-
-.about-image img:hover {
-    filter: grayscale(0%); /* Fica colorida ao passar o mouse */
-}
-
+.about-image img:hover { filter: grayscale(0%); }
 .about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    border-left: 4px solid #ff5722; /* Detalhe laranja/tijolo */
+    font-size: 2.5rem; margin-bottom: 20px;
+    border-left: 4px solid #ff5722;
     padding-left: 15px;
 }
+.about-text p { margin-bottom: 15px; line-height: 1.6; color: #ccc; }
 
-.about-text p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-    color: #ccc;
+/* =========================================
+   4. PROJETOS (Estilos Diversos)
+   ========================================= */
+
+/* ESTILO 1: GALERIA IMERSIVA (Carrossel Revista) */
+.immersive-gallery {
+    background-color: var(--dynamic-bg);
+    color: var(--dynamic-text);
+    padding: 80px 0;
+    transition: background-color 0.8s ease, color 0.8s ease;
+    overflow: hidden;
 }
 
-/* --- ESTILO DO OVERLAY (A Mágica) --- */
-.overlay-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Fundo quase preto total */
-    z-index: 9999;
-    
-    /* O SEGREDO DA INVISIBILIDADE */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    
-    /* Permite scrollar dentro do overlay se o projeto for longo */
-    overflow-y: auto; 
-}
+.gallery-header { padding: 0 10%; margin-bottom: 40px; }
 
-/* Classe que vamos adicionar com JS para mostrar a tela */
-.overlay-container.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Estrutura interna do Overlay */
-.overlay-content {
-    max-width: 1000px;
-    margin: 40px auto;
-    background: #111;
-    padding-bottom: 50px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-.project-hero {
-    position: relative;
-    height: 400px;
-}
-
-.project-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-}
-
-.hero-title {
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    color: white;
-}
-
-.hero-title h1 { font-size: 3rem; margin: 0; }
-.hero-title span { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; }
-
-.project-grid {
-    display: grid;
-    grid-template-columns: 250px 1fr; /* Lateral fixa | Conteúdo fluido */
-    gap: 40px;
-    padding: 40px;
-    color: #ddd;
-}
-
-.close-btn {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    font-size: 3rem;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10000;
-}
-
-.close-btn:hover { color: #ff5722; }
-
-/* Galeria Grid simples */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 30px;
-}
-.gallery-item {
-    height: 150px;
-    background: #333; /* Placeholder cinza */
+.carousel-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 0.8rem;
-}
-
-/* --- 3. SEÇÃO DE PROJETOS --- */
-.section {
-    padding: 100px 0;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 50px;
-    position: relative;
-    display: inline-block;
-}
-
-/* Pequeno detalhe visual abaixo do título */
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent);
-    margin-top: 10px;
-}
-
-.projects-grid {
-    display: grid;
-    /* Cria colunas responsivas automaticamente */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    padding: 0 10%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 40px;
+    /* Esconde barra de rolagem */
+    scrollbar-width: none; 
 }
+.carousel-container::-webkit-scrollbar { display: none; }
 
 .project-card {
-    background-color: var(--card-bg);
-    border-radius: 8px;
+    min-width: 30vw; /* Desktop: 30% da tela */
+    cursor: pointer;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease;
+}
+.project-card:hover { transform: translateY(-10px); }
+
+.card-image {
+    height: 400px;
+    background: #333;
     overflow: hidden;
-    transition: var(--transition);
-    border: 1px solid transparent;
+    margin-bottom: 20px;
 }
-
-.project-card:hover {
-    transform: translateY(-5px); /* Efeito de levitação */
-    border-color: var(--accent);
-}
-
-.project-image img {
-    width: 100%;
-    height: 200px;
+.card-image img {
+    width: 100%; height: 100%;
     object-fit: cover;
-    opacity: 0.8; /* Imagem levemente escurecida */
-    transition: var(--transition);
+    transition: transform 0.6s ease;
 }
+.project-card:hover .card-image img { transform: scale(1.05); }
+.card-info h3 { font-size: 1.8rem; font-weight: 300; }
 
-.project-card:hover .project-image img {
-    opacity: 1; /* Imagem clareia ao passar o mouse */
-}
-
-.project-info {
-    padding: 25px;
-}
-
-.project-info h4 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: var(--text-primary);
-}
-
-.project-info p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.tags {
-    display: inline-block;
-    font-size: 0.75rem;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 2px 8px;
-    border-radius: 50px; /* Borda arredondada estilo 'capsula' */
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
-
-.link-details {
-    display: block;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.link-details:hover {
-    color: var(--accent);
-}
-
-/* --- 4. HABILIDADES --- */
-.bg-light {
-    background-color: #171717; /* Um tom levemente diferente para separar seções */
-}
-
-.skills-list {
+/* ESTILO 2: GALERIA ESPALHADA (Scattered) */
+.project-showcase {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-}
-
-.skill-category h4 {
-    color: var(--accent);
-    margin-bottom: 20px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
-}
-
-.skill-category li {
-    margin-bottom: 10px;
-    color: var(--text-secondary);
-    position: relative;
-    padding-left: 20px;
-}
-
-/* Cria um "bullet point" personalizado quadrado */
-.skill-category li::before {
-    content: '▪'; 
-    color: var(--accent);
-    position: absolute;
-    left: 0;
-}
-
-/* --- CHAMADA PARA AÇÃO (CTA) --- */
-.cta-section {
-    padding: 150px 20px 120px; /* Bastante espaço acima para respirar */
-    text-align: center;
-    /* Um degradê sutil vindo de baixo para dar "peso" ao final da página */
-    background: linear-gradient(to bottom, transparent, rgba(30, 30, 30, 0.5));
-}
-
-.cta-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: var(--text-primary);
-}
-
-.cta-section p {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Container dos botões */
-.cta-buttons {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Garante que quebre linha no celular se precisar */
-}
-
-/* --- ESTILOS DOS BOTÕES (Reutilizáveis) --- */
-
-/* Botão Principal (Cheio) */
-.btn-primary {
-    display: inline-block;
-    padding: 15px 35px;
-    background-color: var(--accent); /* Ciano */
-    color: var(--bg-color); /* Texto escuro para contraste */
-    font-weight: 700;
-    border-radius: 50px; /* Pílula arredondada */
-    border: 2px solid var(--accent);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2); /* Brilho suave */
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px); /* Sobe um pouquinho */
-    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.4);
-}
-
-/* Botão Secundário (Contorno / Outline) */
-.btn-outline {
-    display: inline-block;
-    padding: 15px 35px;
-    background-color: transparent;
-    color: var(--text-primary); /* Texto branco */
-    font-weight: 600;
-    border-radius: 50px;
-    border: 2px solid #444; /* Borda cinza discreta */
-    transition: all 0.3s ease;
-}
-
-.btn-outline:hover {
-    border-color: var(--accent); /* Borda fica ciano */
-    color: var(--accent);        /* Texto fica ciano */
-    background-color: rgba(100, 255, 218, 0.05); /* Fundo muito leve */
-}
-
-/* --- 5. RODAPÉ --- */
-footer {
-    padding: 80px 0;
-    text-align: center;
-    background-color: var(--bg-color);
-    border-top: 1px solid #333;
-}
-
-.social-links {
-    margin: 30px 0;
-}
-
-.social-links a {
-    margin: 0 15px;
-    font-size: 1.1rem;
-    border-bottom: 1px solid transparent;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-    border-bottom: 1px solid var(--accent);
-}
-
-.copyright {
-    color: #555;
-    font-size: 0.8rem;
-}
-
-/* --- 6. RESPONSIVIDADE (Mobile) --- */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .hero-buttons { flex-direction: column; }
-    .skills-list { grid-template-columns: 1fr; }
-}
-
-/* --- ADIÇÕES AO CSS ANTERIOR --- */
-
-/* 1. HERO PARALLAX (Efeito de profundidade) */
-.hero-parallax {
-    position: relative;
-    height: 100vh; /* Altura total da tela */
-    
-    /* --- AQUI VAI A SUA IMAGEM --- */
-    /* Troque 'render-capa.jpg' pelo nome exato do seu arquivo na pasta assets */
-    background-image: url('assets/render-capa.jpg'); 
-    
-    /* Configurações para a imagem ficar bonita */
-    background-position: center center; /* Centraliza a imagem */
-    background-size: cover; /* Faz a imagem cobrir todo o espaço sem distorcer */
-    background-attachment: fixed; /* Efeito parallax simples (opcional) */
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white; /* Cor do texto */
-    overflow: hidden;
-    
-    /* Mantém a animação de zoom lento se você ainda estiver usando */
-    animation: slowZoom 15s ease-out forwards; 
-}
-
-/* Escurecer a imagem para ler o texto */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* COR DA MÁSCARA */
-    /* rgba(0,0,0, 0.6) significa: Preto com 60% de opacidade */
-    /* Se ficar muito escuro, mude 0.6 para 0.4. Se ficar difícil de ler, aumente para 0.7 */
-    background: rgba(18, 18, 18, 0.6); 
-    
-    z-index: 1; /* Fica acima da imagem de fundo */
-}
-
-/* GARANTIR QUE O TEXTO FIQUE POR CIMA DA MÁSCARA */
-.hero-content {
-    position: relative;
-    z-index: 2; /* Fica acima da máscara (z-index 1) */
-    text-align: center;
-}
-
-/* 3. PROJETO 01: Galeria Espalhada */
-.project-showcase {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Texto à esq, Imagens à dir */
-    gap: 50px;
     align-items: center;
     padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
-.gallery-scattered {
-    position: relative;
-    height: 600px; /* Altura fixa para permitir o posicionamento */
-}
-
+.gallery-scattered { position: relative; height: 600px; }
 .scatter-img {
     position: absolute;
     object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Movimento suave */
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
-/* Posicionamento "caótico" organizado */
 .img-lg { width: 70%; top: 0; left: 0; z-index: 1; }
 .img-sm { width: 40%; bottom: 50px; left: -20px; z-index: 3; }
 .img-md { width: 60%; top: 150px; right: -20px; z-index: 2; }
 
-/* 4. PROJETOS 02 e 03 DIVIDIDOS */
+/* ESTILO 3: PROJETOS DIVIDIDOS (Split) */
 .split-projects {
     display: flex;
     height: 70vh;
-    
-    /* Suas configurações de tamanho */
-    width: 70%; /* Sugiro 70% ou 80% para não ficar TÃO pequeno em laptops */
-    max-width: 1000px; /* Trava para não esticar demais em monitores gigantes */
-    margin: 0 auto; /* Centraliza o bloco na tela */
-    
-    /* A SOLUÇÃO DO "COLADO": */
-    gap: 30px; /* Cria um espaço de 30px entre os dois quadros */
+    width: 80%;
+    max-width: 1000px;
+    margin: 100px auto;
+    gap: 30px;
 }
-
 .split-card {
     flex: 1;
     position: relative;
@@ -730,140 +356,152 @@ footer {
     align-items: flex-end;
     padding: 40px;
     cursor: pointer;
+    border-radius: 20px;
     transition: flex 0.5s ease;
-    
-    /* DICA VISUAL: Arredonde os cantos */
-    /* Isso ajuda o olho a perceber que são dois elementos separados pelo Gap */
-    border-radius: 20px; 
 }
-
-.split-card:hover {
-    flex: 1.5; /* Aumenta ao passar o mouse */
-}
-
+.split-card:hover { flex: 1.5; }
 .split-card .bg-img {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     object-fit: cover;
     z-index: 0;
     opacity: 0.4;
-    transition: transform 0.8s;
+    transition: transform 0.8s, opacity 0.5s;
 }
+.split-card:hover .bg-img { transform: scale(1.1); opacity: 0.2; }
+.split-content { position: relative; z-index: 2; }
 
-.split-card:hover .bg-img {
-    transform: scale(1.1); /* Zoom suave */
-    opacity: 0.2;
-}
-
-.split-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* 5. CLASSES DE ANIMAÇÃO (O Motor do site) */
-.scroll-trigger {
-    opacity: 0;
-    transform: translateY(50px);
+/* =========================================
+   5. OVERLAY (POP-UP DETALHES)
+   ========================================= */
+.overlay-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999; /* ACIMA DE TUDO */
     
-    /* IMPORTANTE: A transição fica AQUI na classe base.
-       Isso garante que tanto a IDA quanto a VOLTA sejam suaves (0.8s) */
-    transition: all 0.8s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow-y: auto;
+}
+.overlay-container.active { opacity: 1; visibility: visible; }
+
+.overlay-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #111;
+    padding-bottom: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.close-btn {
+    position: fixed;
+    top: 20px; right: 30px;
+    font-size: 3rem; color: white;
+    background: none; border: none;
+    cursor: pointer; z-index: 10000;
+}
+.close-btn:hover { color: #ff5722; }
+
+/* Grid do Overlay */
+.project-hero { position: relative; height: 400px; }
+.project-hero img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+.hero-title { position: absolute; bottom: 30px; left: 40px; color: white; }
+.hero-title h1 { font-size: 3rem; margin: 0; }
+.project-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px; padding: 40px; color: #ddd;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; margin-top: 30px;
+}
+.gallery-item { height: 150px; background: #333; display: flex; align-items: center; justify-content: center; }
+.tag {
+    color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 20px;
+    display: inline-block; padding: 4px 10px;
+    font-size: 0.8rem; margin: 5px 5px 0 0;
 }
 
-.scroll-trigger.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* =========================================
+   6. RODAPÉ E CTA
+   ========================================= */
+.cta-section {
+    padding: 150px 20px 120px;
+    text-align: center;
+    background: linear-gradient(to bottom, transparent, rgba(30, 30, 30, 0.5));
 }
+.cta-section h2 { font-size: 2.5rem; margin-bottom: 15px; }
+.cta-buttons { margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 
-/* Atrasos para criar "ritmo" */
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-
-/* Variações de entrada */
-.fade-left { transform: translateX(-50px); }
-.fade-right { transform: translateX(50px); }
-
-.scroll-trigger.visible.fade-left,
-.scroll-trigger.visible.fade-right {
-    transform: translateX(0);
+footer {
+    padding: 80px 0;
+    text-align: center;
+    border-top: 1px solid #333;
 }
+.social-links { margin: 30px 0; }
+.social-links a { margin: 0 15px; font-size: 1.1rem; }
+.social-links a:hover { color: var(--accent); }
 
-/* Para telas menores */
-@media (max-width: 768px) {
-    .project-showcase, .split-projects { grid-template-columns: 1fr; display: block; height: auto; }
-    .gallery-scattered { height: 400px; margin-top: 40px;} 
-    .split-projects {
-        width: 90%; /* No celular, usamos quase a tela toda */
-        height: auto; /* Deixa a altura livre */
-        flex-direction: column; /* Empilha um em cima do outro */
-        gap: 20px;
-    }
-
-    .split-card {
-        height: 300px; /* Define uma altura fixa para cada card no mobile */
-    }
-}
-
-/* --- ANIMAÇÕES DE ABERTURA (INTRO) --- */
-
-/* 1. Criamos a animação de "aparecer subindo" */
+/* =========================================
+   7. ANIMAÇÕES (KEYFRAMES E CLASSES)
+   ========================================= */
 @keyframes openingFade {
-    from {
-        opacity: 0;
-        transform: translateY(30px); /* Começa um pouco mais baixo */
-        filter: blur(5px); /* Começa levemente desfocado */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
+    from { opacity: 0; transform: translateY(30px); filter: blur(5px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* 2. Animação de Zoom lento para o fundo (Opcional, mas fica lindo) */
 @keyframes slowZoom {
     from { transform: scale(1); }
     to { transform: scale(1.1); }
 }
 
-/* Aplicando na Hero Section */
-
-/* O Fundo dá um zoom bem lento (efeito dramático) */
-.hero-parallax {
-    overflow: hidden; /* Garante que o zoom não crie barras de rolagem */
-    animation: slowZoom 15s ease-out forwards; /* 15 segundos de zoom suave */
-}
-
-/* O Texto do Título (Nome) */
-.hero-content h1 {
-    opacity: 0; /* Começa invisível */
-    animation: openingFade 1.5s ease-out forwards;
-    animation-delay: 1s; /* Espera 0.5s antes de começar (deixa a imagem brilhar) */
-}
-
-/* O Subtítulo (Cargos) */
-.hero-content p {
+/* Classes para Scroll Trigger */
+.scroll-trigger {
     opacity: 0;
-    animation: openingFade 1.5s ease-out forwards;
-    animation-delay: 2s; /* Entra depois do nome */
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
 }
+.scroll-trigger.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.fade-left { transform: translateX(-50px); }
+.fade-right { transform: translateX(50px); }
+.scroll-trigger.visible.fade-left,
+.scroll-trigger.visible.fade-right { transform: translateX(0); }
 
-/* O Botão de aviso de scroll */
-/* No style.css - Substitua o bloco .scroll-indicator antigo por este: */
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%; /* Coloca o início do elemento no meio */
-    transform: translateX(-50%); /* Puxa ele de volta metade da própria largura (centraliza exato) */
-    text-align: center;
-    z-index: 10; /* Garante que fique acima da imagem */
+/* =========================================
+   8. RESPONSIVIDADE (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Hero */
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; }
     
-    /* Configuração da Animação de Entrada */
-    opacity: 0; /* Começa INVISÍVEL */
-    animation: openingFade 1s ease-out forwards; /* Executa a animação e PARA no estado final (visível) */
-    animation-delay: 3s; /* Espera 3 segundos cravados antes de começar a aparecer */
+    /* Intro */
+    .intro-section { flex-direction: column; text-align: left; gap: 40px; }
+    .skills-bar { width: 100%; }
     
-    /* Transição suave para quando for sumir ao rolar */
-    transition: opacity 0.3s ease; 
+    /* About */
+    .about-container { flex-direction: column; }
+    .about-image img { width: 100%; max-width: 400px; height: auto; }
+    
+    /* Projetos - Carrossel */
+    .project-card { min-width: 85vw; }
+    
+    /* Projetos - Scattered */
+    .project-showcase { grid-template-columns: 1fr; }
+    .gallery-scattered { height: 400px; margin-top: 40px; }
+    
+    /* Projetos - Split */
+    .split-projects { width: 95%; flex-direction: column; height: auto; }
+    .split-card { height: 300px; width: 100%; }
+    
+    /* Overlay */
+    .project-grid { grid-template-columns: 1fr; padding: 20px; }
+    .gallery-grid { grid-template-columns: 1fr; }
 }
