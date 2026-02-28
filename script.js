@@ -33,7 +33,10 @@ const dadosProjetos = [
         solucao: "A edificação foi verticalizada em três pavimentos, garantindo mais de 63% de permeabilidade do solo. Utilizou-se modelagem paramétrica no Revit para racionalizar as curvas da alvenaria e da escada central, que atua como exaustor natural (ventilação em chaminé). A eficiência térmica foi garantida com teto verde, vidros Low-E e marquises de proteção.",
         imagensGaleria: [
             "assets/Camelia/Apresentacao_Camelia.pdf", 
-            "assets/Camelia/Sintese_das_estrategias_bioclimaticas_camelia.pdf", 
+            "assets/Camelia/Sintese_das_estrategias_bioclimaticas_camelia.pdf",
+            "assets/Camelia/Atelie_4-Pavimento_Terreo-1_150-A3-420x297.pdf",
+            "assets/Camelia/Atelie_4-Pavimento_Superior-1_150-A3-420x297.pdf",
+            "assets/Camelia/Atelie_4-Pavimento_Inferior-1_150-A3-420x297.pdf",
             "assets/Camelia/Render_Dia_Externo.jpeg", 
             "assets/Camelia/Render_Dia_Externo_Lateral.jpeg", 
             "assets/Camelia/Render_Noite_Externo.jpeg", 
@@ -54,12 +57,12 @@ const dadosProjetos = [
         
         // INSPIRAÇÕES: Texturas e referências usadas no PDF
         inspiracoes: [
-            "assets/insp-tijolo-aparente.jpg", // Foto de uma parede de tijolinhos
-            "assets/insp-marcio-kogan.jpg",    // Referência à Casa Paraty/Kogan (integração vidro/madeira/tijolo)
-            "assets/insp-chale-natureza.jpg"   // Referência visual da cabana na cachoeira
+            "assets/Tijolo/Inspiracao_Tijolo.jpg", // Foto de uma parede de tijolinhos
+            "assets/Tijolo/Inspiracao_Tijolo2.jpg",    // Referência à Casa Paraty/Kogan (integração vidro/madeira/tijolo)
+            "assets/Tijolo/Inspiracao_Tijolo3.jpg"   // Referência visual da cabana na cachoeira
         ],
         
-        imagemCapa: "assets/tijolo-hero.jpg", // Render da fachada principal (página 14 do seu PDF)
+        imagemCapa: "assets/Tijolo-hero.jpg", // Render da fachada principal (página 14 do seu PDF)
         ano: "2025 (4° Semestre - Sistemas Construtivos)",
         tipologia: "Residencial / Cabana",
         softwares: [
