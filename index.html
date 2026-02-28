@@ -99,12 +99,30 @@
                     </aside>
 
                     <article class="project-details">
+                
+                        <blockquote id="overlay-conceito" class="project-concept"></blockquote>
+
+                        <div id="container-moodboard" class="moodboard-container">
+                            <h4>Inspirações & Moodboard</h4>
+                            <div id="overlay-moodboard" class="moodboard-grid">
+                                </div>
+                        </div>
+
                         <h3>O Desafio</h3>
-                        <p id="overlay-desafio"></p> <h3>Solução Técnica</h3>
-                        <p id="overlay-solucao"></p> <div id="overlay-galeria" class="gallery-grid"></div>
+                        <p id="overlay-desafio"></p>
+                        
+                        <h3>Solução Técnica</h3>
+                        <p id="overlay-solucao"></p>
+                        
+                        <div id="overlay-galeria" class="gallery-grid"></div>
                     </article>
                 </div>
             </div>
+        </div>
+
+        <div id="lightbox" class="lightbox-container" onclick="fecharLightbox()">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Imagem Ampliada">
         </div>
 
         <div class="section-divider">
@@ -119,36 +137,14 @@
             </div>
             
             <div class="gallery-scattered">
-                <img src="assets/placeholder.png" class="scatter-img img-lg scroll-trigger fade-up" alt="Fachada">
-                <img src="assets/placeholder.png" class="scatter-img img-sm scroll-trigger fade-left delay-1" alt="Detalhe">
-                <img src="assets/placeholder.png" class="scatter-img img-md scroll-trigger fade-right delay-2" alt="Planta">
-            </div>
-        </section>
-
-        <section class="split-projects">
-            <div onclick="abrirProjeto(1); return false;" class="split-card dark-bg scroll-trigger">
-                <div class="split-content" >
-                    <h4>02. Bairro Inteligente</h4>
-                    <p>Urbanismo tático e análise de dados.</p>
-                </div>
-                <img src="assets/placeholder.png" class="bg-img" alt="Urbanismo">
-            </div>
-            
-            <div onclick="abrirProjeto(2); return false;" class="split-card light-bg scroll-trigger delay-1">
-                <div class="split-content">
-                    <h4>03. Em construção</h4>
-                    <p>Em breve....</p>
-                </div>
-                <img src="assets/placeholder.png" class="bg-img" alt="Software">
+                <img src="assets/Camelia/Render_Dia_Externo_Lateral.jpeg" class="scatter-img img-lg scroll-trigger fade-up" alt="Fachada">
+                <img src="assets/Camelia/Render_Noite_Externo.jpeg" class="scatter-img img-sm scroll-trigger fade-left delay-1" alt="Detalhe">
+                <img src="assets/Camelia/Render_Noite_Externo_Lateral.jpeg" class="scatter-img img-md scroll-trigger fade-right delay-2" alt="Planta">
             </div>
         </section>
 
         <section id="projetos-dinamicos" class="immersive-gallery">
     
-            <div class="gallery-header">
-                <h2>Projetos Selecionados</h2>
-                <p>Role para o lado &rarr;</p>
-            </div>
 
             <div class="carousel-container">
                 
@@ -158,7 +154,7 @@
                     data-text="#e6dace"
                     onclick="abrirProjeto(0)">
                     <div class="card-image">
-                        <img src="assets/camelia-thumb.jpg" alt="Casa Camélia">
+                        <img src="assets/Camelia/Render_Tarde_Externo.jpeg" alt="Casa Camélia">
                     </div>
                     <div class="card-info">
                         <span>01. Residencial</span>

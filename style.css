@@ -335,9 +335,9 @@ ul { list-style: none; }
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.img-lg { width: 70%; top: 0; left: 0; z-index: 1; }
-.img-sm { width: 40%; bottom: 50px; left: -20px; z-index: 3; }
-.img-md { width: 60%; top: 150px; right: -20px; z-index: 2; }
+.img-lg { width: 70%; top: 10%; left: 0; z-index: 1; }
+.img-sm { width: 70%; bottom: 10%; left: -20px; z-index: 3; }
+.img-md { width: 70%; top: 35%; right: -20px; z-index: 2; }
 
 /* ESTILO 3: PROJETOS DIVIDIDOS (Split) */
 .split-projects {
@@ -504,4 +504,137 @@ footer {
     /* Overlay */
     .project-grid { grid-template-columns: 1fr; padding: 20px; }
     .gallery-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   NOVA DIREÇÃO DE ARTE DO OVERLAY
+   ========================================= */
+
+/* Variável base para a cor dinâmica dentro do overlay */
+#project-overlay {
+    --overlay-accent: #64ffda; /* Cor padrão de segurança */
+}
+
+/* Títulos internos agora respeitam a cor dinâmica do projeto */
+.project-details h3 {
+    color: var(--overlay-accent);
+    margin-bottom: 15px;
+    margin-top: 2%;
+}
+
+.project-sidebar h3 {
+    color: var(--overlay-accent);
+    margin-bottom: 15px;
+}
+
+/* 1. O Conceito (Citação Editorial) */
+.project-concept {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #fff;
+    border-left: 4px solid var(--overlay-accent);
+    padding: 20px 20px 20px 30px;
+    margin: 0 0 40px 0;
+    line-height: 1.6;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), transparent);
+    border-radius: 0 8px 8px 0;
+}
+
+/* 2. Moodboard de Inspirações */
+.moodboard-container {
+    margin-bottom: 40px;
+}
+
+.moodboard-container h4 {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.moodboard-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Permite quebrar linha se tiver muitas imagens */
+}
+
+.moodboard-grid img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px; /* Cantos levemente arredondados */
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    filter: grayscale(30%); /* Deixa um pouco mais sério */
+}
+
+.moodboard-grid img:hover {
+    border-color: var(--overlay-accent);
+    filter: grayscale(0%);
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   LIGHTBOX (ZOOM DE IMAGENS) E MÍDIAS
+   ========================================= */
+
+/* O fundo escuro do Zoom */
+.lightbox-container {
+    display: none; /* Escondido por padrão */
+    position: fixed; 
+    z-index: 100000; /* Tem que ficar acima até do Overlay */
+    left: 0; top: 0; 
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    align-items: center; 
+    justify-content: center;
+}
+
+.lightbox-container.active {
+    display: flex;
+}
+
+/* A imagem dentro do zoom */
+.lightbox-img {
+    max-width: 95vw; /* Ocupa até 95% da largura da tela */
+    max-height: 95vh; /* Ocupa até 95% da altura da tela */
+    object-fit: contain; /* ISSO IMPEDE O CORTE DA IMAGEM */
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.lightbox-close {
+    position: absolute; 
+    top: 20px; right: 30px; 
+    font-size: 3rem; color: white; 
+    cursor: pointer;
+}
+.lightbox-close:hover { color: var(--overlay-accent); }
+
+/* Estilo para quando a galeria carregar um PDF ou Link */
+.media-card {
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    border: 1px solid #333;
+    height: 150px; /* Mesma altura da imagem da galeria */
+    border-radius: 4px;
+}
+
+.media-card:hover {
+    border-color: var(--overlay-accent);
+    background: #222;
+    transform: translateY(-5px);
+}
+
+.media-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
