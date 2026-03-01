@@ -144,95 +144,49 @@
         </section>
 
         <section id="projetos-dinamicos" class="immersive-gallery">
-    
+            
+            <div class="gallery-header">
+                <h2>Deslize ou use as setas para explorar</h2>
+            </div>
 
-            <div class="carousel-container">
+            <div class="carousel-wrapper">
                 
-                <div class="project-card" 
-                    data-index="0"
-                    data-bg="#2c1a16" 
-                    data-text="#e6dace"
-                    onclick="abrirProjeto(0)">
-                    <div class="card-image">
-                        <img src="assets/Camelia/Render_Tarde_Externo.jpeg" alt="Casa Camélia">
+                <button onclick="moverCarrossel(-1)" class="arrow-btn left-arrow">&#10094;</button>
+
+                <div id="meu-carrossel" class="carousel-track">
+    
+                    <div class="project-card" 
+                        data-bg="#2c1a16" data-text="#e6dace"
+                        onclick="abrirSeAtivo(0, this)">  <div class="card-image"><img src="assets/Camelia/Render_Noite_Externo.jpeg" alt="Casa Camélia"></div>
+                        <div class="card-info">
+                            <span>01. Residencial Unifamiliar</span>
+                            <h3>Casa Camélia</h3>
+                        </div>
                     </div>
-                    <div class="card-info">
-                        <span>01. Residencial</span>
-                        <h3>Casa Camélia</h3>
+
+                    <div class="project-card" 
+                        data-bg="#4a261c" data-text="#f0e4d8"
+                        onclick="abrirSeAtivo(1, this)"> <div class="card-image"><img src="assets/tijolo-hero.jpg" alt="Arquitetura e Tijolo"></div>
+                        <div class="card-info">
+                            <span>02. Sistemas Construtivos</span>
+                            <h3>Arquitetura, Romance e Tijolo</h3>
+                        </div>
                     </div>
+
+                    <div class="project-card" 
+                        data-bg="#1a2e22" data-text="#d8e8de"
+                        onclick="abrirSeAtivo(2, this)"> <div class="card-image"><img src="assets/refugio-hero.jpg" alt="Refúgio Tropical"></div>
+                        <div class="card-info">
+                            <span>03. Comercial & Urbanismo</span>
+                            <h3>Refúgio Tropical</h3>
+                        </div>
+                    </div>
+                    
                 </div>
 
-                <div class="project-card" 
-                    data-index="1"
-                    data-bg="#0f291e" 
-                    data-text="#cce6d9"
-                    onclick="abrirProjeto(1)">
-                    <div class="card-image">
-                        <img src="assets/biofilico-thumb.jpg" alt="Bairro Biofílico">
-                    </div>
-                    <div class="card-info">
-                        <span>02. Urbanismo</span>
-                        <h3>Bairro Biofílico</h3>
-                    </div>
-                </div>
-
-                <div class="project-card" 
-                    data-index="2"
-                    data-bg="#1a1a1a" 
-                    data-text="#ffffff"
-                    onclick="abrirProjeto(2)">
-                    <div class="card-image">
-                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
-                    </div>
-                    <div class="card-info">
-                        <span>03. Industrial</span>
-                        <h3>Complexo Fabril</h3>
-                    </div>
-                </div>
-
-                <div class="project-card" 
-                    data-index="2"
-                    data-bg="#1a1a1a" 
-                    data-text="#ffffff"
-                    onclick="abrirProjeto(2)">
-                    <div class="card-image">
-                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
-                    </div>
-                    <div class="card-info">
-                        <span>03. Industrial</span>
-                        <h3>Complexo Fabril</h3>
-                    </div>
-                </div>
-
-                <div class="project-card" 
-                    data-index="2"
-                    data-bg="#1a1a1a" 
-                    data-text="#ffffff"
-                    onclick="abrirProjeto(2)">
-                    <div class="card-image">
-                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
-                    </div>
-                    <div class="card-info">
-                        <span>03. Industrial</span>
-                        <h3>Complexo Fabril</h3>
-                    </div>
-                </div>
-
-                <div class="project-card" 
-                    data-index="2"
-                    data-bg="#1a1a1a" 
-                    data-text="#ffffff"
-                    onclick="abrirProjeto(2)">
-                    <div class="card-image">
-                        <img src="assets/industrial-thumb.jpg" alt="Industrial">
-                    </div>
-                    <div class="card-info">
-                        <span>03. Industrial</span>
-                        <h3>Complexo Fabril</h3>
-                    </div>
-                </div>
-
-                </div>
+                <button onclick="moverCarrossel(1)" class="arrow-btn right-arrow">&#10095;</button>
+                
+            </div>
         </section>
         
         <section class="cta-section container scroll-trigger">
