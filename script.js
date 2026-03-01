@@ -44,17 +44,27 @@ const dadosProjetos = [
             "assets/Tijolo/Inspiracao_Tijolo2.jpg",    
             "assets/Tijolo/Inspiracao_Tijolo3.jpg"   
         ],
-        imagemCapa: "assets/Tijolo-hero.jpg", 
+        imagemCapa: "assets/Tijolo/Render_Noite_Frontal.jpeg", 
         ano: "2025 (4° Semestre - Sistemas Construtivos)",
         tipologia: "Residencial / Cabana",
-        softwares: ["Revit", "AutoCAD", "Lumion"],
+        softwares: [
+            "SketchUp", 
+            "AutoCAD", 
+            "Lumion"
+        ],
         desafio: "Projetar uma edificação residencial utilizando alvenaria convencional de forma sustentável e supereficiente. O desafio central foi mitigar o impacto ambiental clássico desse método construtivo — como a geração de entulho — garantindo ao mesmo tempo uma estética sofisticada que integrasse o Tijolo Aparente Colonial Palha com panos de vidro e uma cobertura de forte inclinação geométrica.",
         solucao: "O projeto foi inteiramente fundamentado no cálculo de modulação. Adotou-se o bloco cerâmico estrutural de 14x19x29 cm, ajustando os vãos e dimensões gerais da planta em múltiplos exatos, considerando a junta de argamassa de 1 cm. Inspirando-se no rigor técnico de Márcio Kogan e na sustentabilidade climática de Francis Kéré, esse cuidado milimétrico evitou cortes e perdas no canteiro de obras, reduzindo o desperício e criando um sistema construtivo otimizado e limpo.",
         imagensGaleria: [
             "assets/Tijolo-perspectiva.jpg", 
             "assets/Tijolo-planta-baixa.jpg", 
             "assets/Tijolo-cortes.jpg",      
-            "assets/Tijolo/Caderno_Tijolos.pdf"     
+            "assets/Tijolo/Caderno_Tijolos.pdf",
+            "assets/Tijolo/Render_Dia_Frontal.jpeg",
+            "assets/Tijolo/Render_Dia_Lateral_Direita_Perspectiva.jpeg",
+            "assets/Tijolo/Render_Dia_Lateral_Esquerda_Perspectiva.jpeg",
+            "assets/Tijolo/Render_Dia_Traseiro.jpeg",
+            "assets/Tijolo/Render_Neve_Frontal.jpeg",
+            "assets/Tijolo/Render_Noite_Frontal.jpeg",
         ]
     },
     // PROJETO 2 (Refúgio Tropical)
