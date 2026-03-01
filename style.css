@@ -489,9 +489,10 @@ ul { list-style: none; }
 .overlay-content {
     max-width: 1000px;
     margin: 40px auto;
-    background: #111;
+    background: var(--overlay-bg, #111);
     padding-bottom: 50px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    transition: background 0.5s ease;
 }
 .close-btn {
     position: fixed;
@@ -510,7 +511,9 @@ ul { list-style: none; }
 .project-grid {
     display: grid;
     grid-template-columns: 250px 1fr;
-    gap: 40px; padding: 40px; color: #ddd;
+    gap: 40px; 
+    padding: 40px;
+    color: var(--overlay-text, #ddd);
 }
 .gallery-grid {
     display: grid;
@@ -620,6 +623,12 @@ footer {
     margin-top: 2%;
 }
 
+.project-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que a barra lateral acompanhe a altura do texto */
+}
+
 .project-sidebar h3 {
     color: var(--overlay-accent);
     margin-bottom: 15px;
@@ -629,7 +638,7 @@ footer {
 .project-concept {
     font-size: 1.3rem;
     font-style: italic;
-    color: #fff;
+    color: var(--overlay-text, #fff);
     border-left: 4px solid var(--overlay-accent);
     padding: 20px 20px 20px 30px;
     margin: 0 0 40px 0;
@@ -640,31 +649,42 @@ footer {
 
 /* 2. Moodboard de Inspirações */
 .moodboard-container {
-    margin-bottom: 40px;
+    margin-top: 30px;
+    flex-grow: 1; /* O SEGREDO: Faz a imagem esticar até o final */
+    display: flex;
+    width: 100%;
 }
 
-.moodboard-container h4 {
-    color: var(--text-secondary);
-    margin-bottom: 15px;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+/* A Imagem Grandona */
+.moodboard-container img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px; /* Uma altura mínima caso o texto principal seja muito curto */
+    object-fit: cover; /* Corta a imagem perfeitamente sem distorcer */
+    border-radius: 8px;
+    filter: grayscale(20%); /* Mantém aquele tom mais editorial/sério */
+    transition: all 0.4s ease;
+}
+
+.moodboard-container img:hover {
+    filter: grayscale(0%);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 .moodboard-grid {
-    display: flex;
+    display: grid; /* Mudamos de flex para grid para ficar alinhado */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); 
     gap: 15px;
-    flex-wrap: wrap; /* Permite quebrar linha se tiver muitas imagens */
 }
 
 .moodboard-grid img {
-    width: 90px;
-    height: 90px;
+    width: 100%; /* Agora a imagem ocupa todo o quadradinho do grid */
+    aspect-ratio: 1 / 1; /* Força a imagem a ser um quadrado perfeito */
     object-fit: cover;
-    border-radius: 8px; /* Cantos levemente arredondados */
+    border-radius: 8px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
-    filter: grayscale(30%); /* Deixa um pouco mais sério */
+    filter: grayscale(30%);
 }
 
 .moodboard-grid img:hover {
