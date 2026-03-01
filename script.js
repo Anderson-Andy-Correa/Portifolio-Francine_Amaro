@@ -80,17 +80,31 @@ const dadosProjetos = [
         corFundo: "#131b0a",
         corTexto: "#eaf4df",
         conceito: "Um oásis de brasilidade no centro urbano. O projeto explora a escala do lote com um bistrô aconchegante e se expande para a escala da via, valorizando o pedestre através do paisagismo tátil.",
-        imagemMoodboard: "assets/refugio-moodboard.jpg",
+        imagemMoodboard: "assets/Tropical/Inspiracao_Tropical.jpeg",
+        imagemCapa: "assets/Tropical/Render_Fundos.jpg", 
         ano: "2024 (3º Semestre / Ateliê II)",
         tipologia: "Comercial / Intervenção Urbana",
-        softwares: ["AutoCAD", "Maquete Física", "Trabalho em Equipe"],
+        softwares: [
+            "AutoCAD", 
+            "Maquete Física", 
+            "Trabalho em Equipe"
+        ],
         desafio: "O ateliê exigiu duas abordagens complementares. A primeira foi projetar o 'Refúgio Tropical', um bistrô de 95,57m² na Rua Dr. Amadeu da Luz, lidando com restrições de sombreamento no inverno geradas pelos edifícios vizinhos. A segunda etapa foi um esforço colaborativo para construir a maquete física de revitalização de toda a via, adaptando o paisagismo para dialogar com a proposta comercial eleita pela turma como diretriz do masterplan.",
         solucao: "Para o bistrô, a implantação utilizou um percurso sinuoso em deck de madeira, materiais naturais (pedra e bambu) e telhado verde para mitigação térmica no verão. Na macroescala, a maquete física construída em equipe materializou o novo perfil viário: inserção de parklets, pergolados floridos, iluminação em escala de pedestre e mobiliário de permanência, devolvendo a rua às pessoas.",
         imagensGaleria: [
-            "assets/refugio-planta-baixa.jpg", 
-            "assets/refugio-cortes.jpg",
-            "assets/maquete-visao-geral.jpg",  
-            "assets/prancha-refugio.pdf"       
+            "assets/Tropical/Apresentacao_Atelie_03.pdf",
+            "assets/Tropical/Render_Capa.jpg", 
+            "assets/Tropical/Render_Entrada_Lateral.jpg",
+            "assets/Tropical/Render_Fundos.jpg",
+            "assets/Tropical/Render_Entrada_Fundos.jpg",
+            "assets/Tropical/Render_Entrada.jpg",            
+            "assets/Tropical/Maquete_Rua_01.jpeg", 
+            "assets/Tropical/Maquete_Rua_02.jpeg",
+            "assets/Tropical/Maquete_Rua_03.jpeg",  
+            "assets/Tropical/Maquete_Rua_04.jpeg",     
+            "assets/Tropical/Maquete_Rua_05.jpeg",    
+            "assets/Tropical/Maquete_Rua_06.jpeg",    
+            "assets/Tropical/Maquete_Rua_07.jpeg"   
         ]
     }
 ];
