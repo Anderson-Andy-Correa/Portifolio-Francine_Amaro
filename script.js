@@ -154,6 +154,7 @@ function abrirProjeto(index) {
     document.getElementById('overlay-ano').innerText = projeto.ano;
     document.getElementById('overlay-tipo').innerText = projeto.tipologia;
     document.getElementById('overlay-desafio').innerText = projeto.desafio;
+    document.getElementById('overlay-inspiracao').innerText = projeto.inspiracao;
     document.getElementById('overlay-solucao').innerText = projeto.solucao;
     
     const imgElement = document.getElementById('overlay-img');
@@ -161,7 +162,7 @@ function abrirProjeto(index) {
 
     const blockquoteConceito = document.getElementById('overlay-conceito');
     if (projeto.conceito) {
-        blockquoteConceito.innerText = `"${projeto.conceito}"`;
+        blockquoteConceito.innerText = `${projeto.conceito}`;
         blockquoteConceito.style.display = 'block';
     } else {
         blockquoteConceito.style.display = 'none';
