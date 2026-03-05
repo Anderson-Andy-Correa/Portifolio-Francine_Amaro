@@ -9,7 +9,7 @@ const dadosProjetos = [
         corDestaque: "#e9b2bd",
         corFundo: "#5c3e46",
         corTexto: "#fcedf0",
-        conceito: 'Um refúgio para almas jovens e notívagas. Um espaço que vibra entre a tranquilidade íntima e o calor das festas de família. \n\n"De um traço nasce a arquitetura. E quando ele é bonito e cria surpresa, ela pode atingir, sendo bem conduzida, o nível superior de uma obra de arte. "Oscar Niemeyer',
+        conceito: 'Um refúgio para almas jovens e notívagas. Um espaço que vibra entre a tranquilidade íntima e o calor das festas de família. \n\n"De um traço nasce a arquitetura. E quando ele é bonito e cria surpresa, ela pode atingir, sendo bem conduzida, o nível superior de uma obra de arte." - Oscar Niemeyer',
         imagemMoodboard: "assets/Camelia/Inspiracao_Camelia.jpeg",
         imagemCapa: "assets/Camelia/Render_Tarde_Externo.jpeg",
         ano: "2025 (4º Semestre)",
@@ -42,7 +42,7 @@ const dadosProjetos = [
         corDestaque: "#c29674",
         corFundo: "#7a3a23",
         corTexto: "#f7f0eb",
-        conceito: "Onde o tempo desacelera entre texturas rústicas e o horizonte catarinense. Um convite para almas que buscam o silêncio do inverno no calor de um abrigo esculpido à mão. \n\n \"Cada material tem as suas características específicas que temos de entender se os queremos usar. Por outras palavras, nenhum design é possível até que todos os materiais que você projeta sejam totalmente compreendidos.\" Luwig Mies Van Der Rohe.",
+        conceito: "Onde o tempo desacelera entre texturas rústicas e o horizonte catarinense. Um convite para almas que buscam o silêncio do inverno no calor de um abrigo esculpido à mão. \n\n \"Cada material tem as suas características específicas que temos de entender se os queremos usar. Por outras palavras, nenhum design é possível até que todos os materiais que você projeta sejam totalmente compreendidos.\" - Luwig Mies Van Der Rohe.",
         imagemMoodboard: "assets/Tijolo/Inspiracao_Tijolo.jpg",
         imagemCapa: "assets/Tijolo/Render_Dia_Frontal.jpeg", 
         ano: "2025 (4° Semestre - Sistemas Construtivos)",
@@ -60,7 +60,7 @@ const dadosProjetos = [
             "assets/Tijolo/Planta_Cobertura.jpg", 
             "assets/Tijolo/corteAA.jpg",
             "assets/Tijolo/corteBB.jpg",
-            "assets/Tijolo/corteBB2.jpg",
+            "assets/Tijolo/CorteBB2.jpg",
             "assets/Tijolo/Fachada_Frontal.jpg",
             "assets/Tijolo/Fachada_Lateral_Direita.jpg",
             "assets/Tijolo/Fachada_Lateral_Esquerda.jpg",
@@ -76,23 +76,24 @@ const dadosProjetos = [
     },
     // PROJETO 2 (Refúgio Tropical)
     {
-        titulo: "Refúgio Tropical & Urbanismo",
-        subtitulo: "Comercial, Paisagismo e Maquete Física",
+        titulo: "Planejamento Urbano e Refúgio Tropical",
+        subtitulo: "Revitalização e Reutilização dos espaços públicos",
         corDestaque: "#628f31",
-        corFundo: "#131b0a",
+        corFundo: "#33461d",
         corTexto: "#eaf4df",
-        conceito: "Um oásis de brasilidade no centro urbano. O projeto explora a escala do lote com um bistrô aconchegante e se expande para a escala da via, valorizando o pedestre através do paisagismo tátil.",
+        conceito: "Um oásis de brasilidade no centro urbano, um refúgio escondido no coração da cidade, onde a alma brasileira vibra em cada canto. Aqui, o clima é quente, a música é boa e a energia contagia. Um ambiente acolhedor que mistura a hospitalidade típica brasileira. \n\n \"A arquitetura é sempre uma modificação temporária do espaço, da cidade, da paisagem. Achamos que é permanente. Mas nós nunca sabemos.\” - Jean Nouvel",
         imagemMoodboard: "assets/Tropical/Inspiracao_Tropical.jpeg",
         imagemCapa: "assets/Tropical/Render_Fundos.jpg", 
-        ano: "2024 (3º Semestre / Ateliê II)",
-        tipologia: "Comercial / Intervenção Urbana",
+        ano: "2024 (3º Semestre / Ateliê III)",
+        tipologia: "Revitalização Urbana e Uso Comercial",
         softwares: [
             "AutoCAD", 
-            "Maquete Física", 
-            "Trabalho em Equipe"
+            "SketchUp",
+            "Maquete Física"
         ],
-        desafio: "O ateliê exigiu duas abordagens complementares. A primeira foi projetar o 'Refúgio Tropical', um bistrô de 95,57m² na Rua Dr. Amadeu da Luz, lidando com restrições de sombreamento no inverno geradas pelos edifícios vizinhos. A segunda etapa foi um esforço colaborativo para construir a maquete física de revitalização de toda a via, adaptando o paisagismo para dialogar com a proposta comercial eleita pela turma como diretriz do masterplan.",
-        solucao: "Para o bistrô, a implantação utilizou um percurso sinuoso em deck de madeira, materiais naturais (pedra e bambu) e telhado verde para mitigação térmica no verão. Na macroescala, a maquete física construída em equipe materializou o novo perfil viário: inserção de parklets, pergolados floridos, iluminação em escala de pedestre e mobiliário de permanência, devolvendo a rua às pessoas.",
+        desafio: "Duas abordagens, duas escalas. Na primeira etapa trabalhamos a escala macro, a revitalização e revalorização do espaço público, a Rua Presidente Getulio Vargas, localizada no centro de Blumenau, uma rua privilegiada pela localização e esquecida pelo público. Na segunda etapa, a escala micro, o desafio era desenvolver uma edificação de uso comercial com metragem máxima de 100m² e com acessibilidade como principal diretriz, que trouxesse vitalidade para região pouco movimentada, onde foram trabalhados os lotes da Rua Presidente Getúlio Vargas, estudada na primera etapa, levando em consideração a revitalização proposta anteriormente e as edificações de longa permanência.",
+        inspiracao: "A proposta floresce como um manifesto de brasilidade, uma arquitetura que não apenas ocupa o solo, mas respira e pulsa em harmonia com a luz tropical. O conceito celebra a exuberância da nossa flora como um elemento de cura, transformando o lote em um respiro verde onde a sombra e o silêncio convidam a alma a desacelerar. É um convite ao pertencimento que exalta a essência do nosso clima, convertendo o cenário urbano em um destino de afeto e permitindo que o público redescubra o prazer de habitar o Brasil sob o abrigo de um oásis particular.",
+        solucao: "A viabilidade técnica do Refúgio Tropical foi alcançada através da plena adequação às normas de acessibilidade universal, garantindo um percurso inclusivo que conecta o lote comercial à revalorização do espaço público da Rua Getúlio Vargas. A solução aplicou um telhado verde como estratégia de infraestrutura azul e verde, otimizando o conforto térmico passivo e criando o respiro necessário em meio à densidade central de Blumenau. Essa configuração não apenas mitiga as ilhas de calor, mas materializa o conceito de vitalidade urbana proposto, transformando a edificação em um oásis que convida o público a reocupar esta região.",
         imagensGaleria: [
             "assets/Tropical/Apresentacao_Atelie_03.pdf",
             "assets/Tropical/Render_Capa.jpg", 
@@ -111,15 +112,15 @@ const dadosProjetos = [
     },
     // PROJETO 3 (Topologia e Terraplenagem)
     {
-        titulo: "Topologia & Terraplenagem",
+        titulo: "Topografia e Geologia Aplicada",
         subtitulo: "Estudo de Relevo, Corte, Aterro e Maquete Física",
         
         // KIT DE CORES TROPICAL/TERRENO (Inspirado nas curvas de nível verdes da maquete)
-        corDestaque: "#1b994b", // Verde esmeralda/folha vibrante
-        corFundo: "#141c16",    // Fundo verde muito escuro (quase preto, cor de floresta densa)
+        corDestaque: "#b86d35", // Verde esmeralda/folha vibrante
+        corFundo: "#4b220f",    // Fundo verde muito escuro (quase preto, cor de floresta densa)
         corTexto: "#e6f2eb",    // Branco esverdeado suave para leitura
         
-        conceito: "A materialização do território. Compreender a terra não como uma tela em branco, mas como um volume vivo que dita as regras, os limites e as possibilidades da implantação arquitetônica.",
+        conceito: "Compreender que a terra não como uma tela em branco, mas como um volume vivo que dita as regras, os limites e as possibilidades da implantação arquitetônica. \n\n \"Conhecer o solo é o primeiro passo para que o design não seja apenas beleza, mas permanência e estabilidade.\" Autor Desconhecido.",
         
         // MOODBOARD: Uma foto focada nos detalhes das curvas cortadas a laser
         imagemMoodboard: "assets/Topografia/Topografia_mood.jpg",
@@ -127,7 +128,7 @@ const dadosProjetos = [
         // CAPA: A foto geral da maquete vista de cima/diagonal
         imagemCapa: "assets/Topografia/maquete-Capa.jpeg", 
         
-        ano: "2025 (4º Semestre)",
+        ano: "2025 (3º Semestre)",
         tipologia: "Estudo Topográfico",
         softwares: [
             "AutoCAD", 

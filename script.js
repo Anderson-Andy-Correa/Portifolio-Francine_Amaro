@@ -224,6 +224,7 @@ function abrirProjeto(index) {
     }
 
     if (overlay) {
+        overlay.scrollTop = 0;
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
