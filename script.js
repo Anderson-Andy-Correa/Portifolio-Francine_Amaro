@@ -153,10 +153,43 @@ function abrirProjeto(index) {
     document.getElementById('overlay-subtitulo').innerText = projeto.subtitulo;
     document.getElementById('overlay-ano').innerText = projeto.ano;
     document.getElementById('overlay-tipo').innerText = projeto.tipologia;
-    document.getElementById('overlay-desafio').innerText = projeto.desafio;
-    document.getElementById('overlay-inspiracao').innerText = projeto.inspiracao;
-    document.getElementById('overlay-solucao').innerText = projeto.solucao;
     
+    const tituloDesafio = document.getElementById('titulo-desafio');
+    const textoDesafio = document.getElementById('overlay-desafio');
+    
+    if (projeto.desafio && projeto.desafio.trim() !== "") {
+        textoDesafio.innerText = projeto.desafio;
+        textoDesafio.style.display = 'block';
+        if (tituloDesafio) tituloDesafio.style.display = 'block';
+    } else {
+        textoDesafio.style.display = 'none';
+        if (tituloDesafio) tituloDesafio.style.display = 'none';
+    }
+
+    const tituloInspiracao = document.getElementById('titulo-inspiracao');
+    const textoInspiracao = document.getElementById('overlay-inspiracao');
+    
+    if (projeto.inspiracao && projeto.inspiracao.trim() !== "") {
+        textoInspiracao.innerText = projeto.inspiracao;
+        textoInspiracao.style.display = 'block';
+        if (tituloInspiracao) tituloInspiracao.style.display = 'block';
+    } else {
+        textoInspiracao.style.display = 'none';
+        if (tituloInspiracao) tituloInspiracao.style.display = 'none';
+    }
+
+    const tituloSolucao = document.getElementById('titulo-solucao');
+    const textoSolucao = document.getElementById('overlay-solucao');
+    
+    if (projeto.solucao && projeto.solucao.trim() !== "") {
+        textoSolucao.innerText = projeto.solucao;
+        textoSolucao.style.display = 'block';
+        if (tituloSolucao) tituloSolucao.style.display = 'block';
+    } else {
+        textoSolucao.style.display = 'none';
+        if (tituloSolucao) tituloSolucao.style.display = 'none';
+    }
+
     const imgElement = document.getElementById('overlay-img');
     if (imgElement) imgElement.src = projeto.imagemCapa;
 

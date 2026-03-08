@@ -230,7 +230,7 @@ h2 {
 /* INTRO DASHBOARD (Texto + Skills) */
 .intro-section {
     padding: 6% 10% 4% 10%;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: space-between;
     max-width: 90%;
@@ -250,8 +250,9 @@ h2 {
     font-size: 1.1rem;
     color: var(--text-secondary);
     /* border-left: 3px solid var(--accent); */
-    padding-left: 20px;
+    /* padding-left: 20px; */
     font-style: italic;
+    text-align: center;
 }
 
 /* BARRA DE SKILLS */
@@ -319,7 +320,7 @@ h2 {
 .immersive-gallery {
     background-color: var(--dynamic-bg);
     color: var(--dynamic-text);
-    padding: 80px 0;
+    padding-top: 80px;
     transition: background-color 0.8s ease, color 0.8s ease;
     overflow: hidden;
 }
