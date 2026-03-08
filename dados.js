@@ -110,7 +110,7 @@ const dadosProjetos = [
             "assets/Tropical/Maquete_Rua_07.jpeg"   
         ]
     },
-    // PROJETO 3 (Topologia e Terraplenagem)
+    // PROJETO 3 (Topologia)
     {
         titulo: "Topografia e Geologia Aplicada",
         subtitulo: "Estudo de Relevo, Corte, Aterro e Maquete Física",
@@ -146,5 +146,41 @@ const dadosProjetos = [
             "assets/Topografia/maquete-superior.jpeg",
             "assets/Topografia/maquete-Capa.jpeg",  
         ]
-    }
+    },
+    // PROJETO 4 (Sensacoes)
+    {
+        titulo: "Sensações",
+        subtitulo: "Sensações e Percepções do Espaço através da Arquitetura",
+        
+        // KIT DE CORES TROPICAL/TERRENO (Inspirado nas curvas de nível verdes da maquete)
+        corDestaque: "#b86d35", // Verde esmeralda/folha vibrante
+        corFundo: "#4b220f",    // Fundo verde muito escuro (quase preto, cor de floresta densa)
+        corTexto: "#e6f2eb",    // Branco esverdeado suave para leitura
+        
+        conceito: "A arquitetura é a arte de moldar o espaço para criar experiências sensoriais que transcendem a mera funcionalidade. Este projeto é uma exploração das sensações e percepções do espaço, onde cada curva, cada plano e cada material são cuidadosamente escolhidos para evocar emoções e estimular os sentidos. \n\n \"A arquitetura é a música petrificada, onde as formas e os volumes compõem uma sinfonia visual que ressoa na alma de quem a habita.\" - Autor Desconecido.",
+        
+        imagemMoodboard: "assets/Sensacoes/Topografia_mood.jpg",
+        
+        imagemCapa: "assets/Sensacoes/maquete-Capa.jpeg", 
+        
+        ano: "2025 (3º Semestre)",
+        tipologia: "Estudo Topográfico",
+        softwares: [
+            "AutoCAD", 
+            "Corte a Laser", 
+            "Trabalho Manual"
+        ],
+        
+        desafio: "O desafio proposto foi dominar a modificação do relevo natural. Foi necessário selecionar um terreno acidentado no município de Blumenau (área superior a 1.000 m²) e projetar a implantação de uma plataforma plana que ocupasse no mínimo 20% da área. O maior rigor técnico exigido foi o cálculo exato para gerar alturas semelhantes entre os volumes de corte e de aterro, garantindo eficiência e economia na movimentação de terra.",
+        
+        solucao: "A partir do levantamento aerofotogramétrico, o terreno foi modelado no AutoCAD. As curvas de nível foram retificadas, definindo com precisão as cristas de corte e pés de aterro. Para a representação, optou-se pela maquete física: o arquivo digital foi rigorosamente preparado, separando as curvas e as linhas de guia (impressão e corte) em 'layers' distintos para a máquina de corte a laser. A montagem em chapas sobrepostas e a pintura em degradê transformaram dados topográficos áridos em uma representação tátil impressionante.",
+        
+        imagensGaleria: [
+            "assets/Topografia/maquete-angulo1.jpeg", 
+            "assets/Topografia/maquete-angulo2.jpeg",
+            "assets/Topografia/maquete-superior.jpeg",
+            "assets/Topografia/maquete-Capa.jpeg",  
+        ]
+    },  
+    
 ];
