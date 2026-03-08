@@ -239,7 +239,7 @@ function abrirProjeto(index) {
                     <div class="gallery-item">
                         <video src="${link}" controls style="width:100%; height:100%; object-fit:cover; border-radius:4px;"></video>
                     </div>`;
-            } else if (linkMinusculo.includes('youtube.com') || linkMinusculo.includes('youtu.be')) {
+            } else if (linkMinusculo.includes('youtube.com') || linkMinusculo.includes('youtu.be') || linkMinusculo.includes('drive.google.com')) {
                 htmlItem = `
                     <a href="${link}" target="_blank" class="gallery-item media-card">
                         <span class="media-card-icon">▶️</span>

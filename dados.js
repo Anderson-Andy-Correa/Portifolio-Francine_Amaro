@@ -159,27 +159,23 @@ const dadosProjetos = [
         
         conceito: "A arquitetura é a arte de moldar o espaço para criar experiências sensoriais que transcendem a mera funcionalidade. Este projeto é uma exploração das sensações e percepções do espaço, onde cada curva, cada plano e cada material são cuidadosamente escolhidos para evocar emoções e estimular os sentidos. \n\n \"A arquitetura é a música petrificada, onde as formas e os volumes compõem uma sinfonia visual que ressoa na alma de quem a habita.\" - Autor Desconecido.",
         
-        imagemMoodboard: "assets/Sensacoes/Topografia_mood.jpg",
+        imagemMoodboard: "assets/Sensacoes/Inspiracao_Sensacoes.jpeg",
         
-        imagemCapa: "assets/Sensacoes/maquete-Capa.jpeg", 
+        imagemCapa: "assets/Sensacoes/Maquete_Capa.png", 
         
-        ano: "2025 (3º Semestre)",
+        ano: "2024 (2º Semestre)",
         tipologia: "Estudo Topográfico",
         softwares: [
-            "AutoCAD", 
             "Corte a Laser", 
             "Trabalho Manual"
         ],
         
         desafio: "O desafio proposto foi dominar a modificação do relevo natural. Foi necessário selecionar um terreno acidentado no município de Blumenau (área superior a 1.000 m²) e projetar a implantação de uma plataforma plana que ocupasse no mínimo 20% da área. O maior rigor técnico exigido foi o cálculo exato para gerar alturas semelhantes entre os volumes de corte e de aterro, garantindo eficiência e economia na movimentação de terra.",
-        
-        solucao: "A partir do levantamento aerofotogramétrico, o terreno foi modelado no AutoCAD. As curvas de nível foram retificadas, definindo com precisão as cristas de corte e pés de aterro. Para a representação, optou-se pela maquete física: o arquivo digital foi rigorosamente preparado, separando as curvas e as linhas de guia (impressão e corte) em 'layers' distintos para a máquina de corte a laser. A montagem em chapas sobrepostas e a pintura em degradê transformaram dados topográficos áridos em uma representação tátil impressionante.",
-        
+        inspiracao: " - ",
+        solucao: " - ",
+
         imagensGaleria: [
-            "assets/Topografia/maquete-angulo1.jpeg", 
-            "assets/Topografia/maquete-angulo2.jpeg",
-            "assets/Topografia/maquete-superior.jpeg",
-            "assets/Topografia/maquete-Capa.jpeg",  
+            "https://drive.google.com/file/d/1obhEfe3407uqcvp3daLtmXxyv41awn8A/view?usp=sharing", 
         ]
     },  
     
